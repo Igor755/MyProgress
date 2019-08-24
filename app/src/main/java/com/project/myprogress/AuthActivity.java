@@ -1,19 +1,20 @@
 package com.project.myprogress;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.project.myprogress.fragments_registration.ForgotPasswordFragment;
 import com.project.myprogress.fragments_registration.RegistrationFragment;
 import com.project.myprogress.fragments_registration.SignInFragment;
 
 public class AuthActivity extends AppCompatActivity {
 
 
-    public enum MyFragmets {SIGN_IN_FRAGMENT, REGISTRATION_FRAGMENT}
+    public enum MyFragmets {SIGN_IN_FRAGMENT, REGISTRATION_FRAGMENT, FORGOT_PASSWORD_FRAGMENT}
 
-    public Fragment sign_in_fragment, registration_fragment;
+    public Fragment sign_in_fragment, registration_fragment, forgot_password_fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class AuthActivity extends AppCompatActivity {
 
         sign_in_fragment = new SignInFragment();
         registration_fragment = new RegistrationFragment();
+        forgot_password_fragment = new ForgotPasswordFragment();
 
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction()
@@ -30,7 +32,7 @@ public class AuthActivity extends AppCompatActivity {
                 .commit();
 
     }
-    public void VisibleFragment(MyFragmets visiblefragment) {
+    public void VisibleFragmentAuthActivity(MyFragmets visiblefragment) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -44,6 +46,11 @@ public class AuthActivity extends AppCompatActivity {
             case REGISTRATION_FRAGMENT:
                 fragmentManager.beginTransaction()
                         .replace(R.id.fragment_container_auth, registration_fragment)
+                        .commit();
+                break;
+            case FORGOT_PASSWORD_FRAGMENT:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container_auth, forgot_password_fragment)
                         .commit();
                 break;
         }
