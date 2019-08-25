@@ -53,6 +53,7 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
 
 
         holder.txtNameProgress.setText(itemList.getName_progress());
+        holder.txtBallsProgress.setText(itemList.getBalls_progress());
         holder.deleteItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,12 +98,14 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView txtNameProgress;
+        TextView txtBallsProgress;
         ImageButton deleteItem;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             txtNameProgress = (TextView) itemView.findViewById(R.id.txtnameplace);
+            txtBallsProgress = (TextView) itemView.findViewById(R.id.balls);
             deleteItem = (ImageButton) itemView.findViewById(R.id.txt_menu_places);
 
             itemView.setOnClickListener(new View.OnClickListener() {

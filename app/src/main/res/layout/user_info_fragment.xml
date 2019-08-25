@@ -1,100 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments_user.UserInfoFragment">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="30dp"
-        android:layout_height="23dp"
-        android:text="12"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="174dp"
-        tools:layout_editor_absoluteY="25dp" />
+
+    <FrameLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/rec3" />
+
+    </FrameLayout>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        tools:ignore="MissingConstraints">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="10" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="next 10240 point" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/Name" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/last_name" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/email" />
+        </TableRow>
+    </TableLayout>
 
 
     <TextView
-        android:id="@+id/textView7"
-        android:layout_width="50dp"
-        android:layout_height="21dp"
-        android:text="next"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="219dp"
-        tools:layout_editor_absoluteY="25dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="90dp"
-        android:layout_height="28dp"
-        android:text="10240 point"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="283dp"
-        tools:layout_editor_absoluteY="25dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="145dp"
-        android:layout_height="156dp"
-        android:layout_marginBottom="556dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:src="@drawable/rec3" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="197dp"
-        android:layout_height="22dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="68dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="197dp"
-        android:layout_height="22dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/last_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="107dp" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="197dp"
-        android:layout_height="22dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/email"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="151dp" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="168dp"
-        android:layout_height="34dp"
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:gravity="center"
         android:text="Progress"
-        tools:layout_editor_absoluteX="115dp"
-        tools:layout_editor_absoluteY="209dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="184dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.037"
-        tools:ignore="MissingConstraints"
+        app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
