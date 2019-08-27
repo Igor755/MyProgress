@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.project.myprogress.MainActivity;
 import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterProgress;
 import com.project.myprogress.interfaces.OnItemClickListener;
@@ -23,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
-import static com.project.myprogress.MainActivity.MyFragmets.ADD_PROGRESS_FRAGMENT;
 
 
 public class UserInfoFragment extends Fragment implements AddProgressFragment.OnInputSelected {
