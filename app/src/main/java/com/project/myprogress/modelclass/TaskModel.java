@@ -1,7 +1,5 @@
 package com.project.myprogress.modelclass;
 
-import com.project.myprogress.fragments_user.TaskFragment;
-
 public class TaskModel {
 
     private String type;

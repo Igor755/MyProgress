@@ -1,4 +1,4 @@
-package com.project.myprogress.fragments_user;
+package com.project.myprogress.fragments_profile;
 
 
 import android.os.Bundle;
@@ -13,9 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.project.myprogress.R;
-import com.project.myprogress.customview.MultiSelectionSpinner;
-
-import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 

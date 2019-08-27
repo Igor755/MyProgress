@@ -1,7 +1,5 @@
-package com.project.myprogress.fragments_user;
+package com.project.myprogress.fragments_profile;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,16 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
-import com.project.myprogress.MainActivity;
 import com.project.myprogress.R;
-import com.project.myprogress.adapters.AdapterProgress;
 import com.project.myprogress.adapters.AdapterTask;
 import com.project.myprogress.interfaces.OnItemClickListener;
 import com.project.myprogress.modelclass.TaskModel;
 
 import java.util.ArrayList;
-
-import static com.project.myprogress.MainActivity.MyFragmets.ADD_TASK_FRAGMENT;
 
 
 public class TaskFragment extends Fragment {

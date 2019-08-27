@@ -5,18 +5,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.fragment.app.FragmentStatePagerAdapter;
 
 
-import com.project.myprogress.fragments_user.TaskFragment;
-import com.project.myprogress.fragments_user.UserInfoFragment;
+import com.project.myprogress.fragments_profile.TaskFragment;
+import com.project.myprogress.fragments_profile.ProfileFragment;
 
 
 
-public class UserFragmentPagerAdapter extends FragmentPagerAdapter {
+public class AdapterProfilePager extends FragmentPagerAdapter {
 
 
-    public UserFragmentPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+    public AdapterProfilePager(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
     }
 
@@ -24,7 +23,7 @@ public class UserFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                UserInfoFragment userInfoFragment = new UserInfoFragment();
+                ProfileFragment userInfoFragment = new ProfileFragment();
                 return userInfoFragment;
             case 1:
                 TaskFragment taskFragment = new TaskFragment();

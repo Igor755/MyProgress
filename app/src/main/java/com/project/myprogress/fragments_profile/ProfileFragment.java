@@ -1,4 +1,4 @@
-package com.project.myprogress.fragments_user;
+package com.project.myprogress.fragments_profile;
 
 
 import android.os.Bundle;
@@ -24,7 +24,7 @@ import java.util.List;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
-public class UserInfoFragment extends Fragment implements AddProgressFragment.OnInputSelected {
+public class ProfileFragment extends Fragment implements AddProgressFragment.OnInputSelected {
 
     private AdapterProgress adapterProgress;
     private List<ProgressModel> listItems;
@@ -45,7 +45,7 @@ public class UserInfoFragment extends Fragment implements AddProgressFragment.On
 
 
 
-        View v = inflater.inflate(R.layout.user_info_fragment, container, false);
+        View v = inflater.inflate(R.layout.profile_fragment, container, false);
 
         fab = (ImageButton) v.findViewById(R.id.fab);
 
@@ -81,7 +81,7 @@ public class UserInfoFragment extends Fragment implements AddProgressFragment.On
             public void onClick(View v) {
 
                 AddProgressFragment dialog = new AddProgressFragment();
-                dialog.setTargetFragment(UserInfoFragment.this, 1);
+                dialog.setTargetFragment(ProfileFragment.this, 1);
                 dialog.show(getFragmentManager(), "AddProgressFragment");
 
                /* if (getActivity() instanceof MainActivity) {

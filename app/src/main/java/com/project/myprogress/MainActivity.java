@@ -1,21 +1,19 @@
 package com.project.myprogress;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
-import com.project.myprogress.adapters.UserFragmentPagerAdapter;
-import com.project.myprogress.fragments_user.AddProgressFragment;
-import com.project.myprogress.fragments_user.AddTaskFragment;
-import com.project.myprogress.fragments_user.TaskFragment;
-import com.project.myprogress.fragments_user.UserInfoFragment;
+import com.project.myprogress.adapters.AdapterProfilePager;
+import com.project.myprogress.fragments_profile.AddProgressFragment;
+import com.project.myprogress.fragments_profile.AddTaskFragment;
+import com.project.myprogress.fragments_profile.TaskFragment;
+import com.project.myprogress.fragments_profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     public Fragment user_info_fragment, add_progress_fragment, task_fragment, add_task_fragment;
 
-    UserFragmentPagerAdapter userFragmentPagerAdapter;
+    AdapterProfilePager userFragmentPagerAdapter;
 
     TabItem profile, tasks;
     TabLayout tabLayout;
@@ -34,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
 
-        user_info_fragment = new UserInfoFragment();
+        user_info_fragment = new ProfileFragment();
         add_progress_fragment = new AddProgressFragment();
         task_fragment = new TaskFragment();
         add_task_fragment = new AddTaskFragment();
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
 
-        userFragmentPagerAdapter = new UserFragmentPagerAdapter(getSupportFragmentManager(),1);
+        userFragmentPagerAdapter = new AdapterProfilePager(getSupportFragmentManager(),1);
         viewPager.setAdapter(userFragmentPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 

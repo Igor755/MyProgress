@@ -1,11 +1,10 @@
-package com.project.myprogress.fragments_user;
+package com.project.myprogress.fragments_profile;
 
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
