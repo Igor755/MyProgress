@@ -4,7 +4,6 @@ package com.project.myprogress.fragments_user;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.project.myprogress.R;
+import com.project.myprogress.customview.MultiSelectionSpinner;
+
+import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -22,6 +24,8 @@ public class AddProgressFragment extends DialogFragment {
 
     private EditText nameProgress;
     private TextView actionOk, actionCancel;
+
+
 
     public interface OnInputSelected{
         void sendInput(String input);
@@ -37,6 +41,8 @@ public class AddProgressFragment extends DialogFragment {
         actionOk = v.findViewById(R.id.ok);
         actionCancel = v.findViewById(R.id.cancel);
         nameProgress = v.findViewById(R.id.edit_text_name);
+
+
 
         actionOk.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -16,8 +16,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.project.myprogress.R;
+import com.project.myprogress.customview.MultiSelectionSpinner;
 
 import java.util.Calendar;
+import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -25,7 +27,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 //////////DIALOG FRAGMENT
 
 
-public class AddTaskFragment extends DialogFragment {
+public class AddTaskFragment extends DialogFragment implements MultiSelectionSpinner.OnMultipleItemsSelectedListener{
 
     private TextView actionOk, actionCancel;
     private TextView etmDisplayDate;
@@ -45,6 +47,13 @@ public class AddTaskFragment extends DialogFragment {
         actionCancel = v.findViewById(R.id.cancel);
         etmDisplayDate = v.findViewById(R.id.tvDate);
         imageButton = v.findViewById(R.id.datePicker);
+
+
+        String[] array = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
+        MultiSelectionSpinner multiSelectionSpinner = (MultiSelectionSpinner) v.findViewById(R.id.edit_text_progress);
+        multiSelectionSpinner.setItems(array);
+        multiSelectionSpinner.setSelection(new int[]{2, 6});
+        multiSelectionSpinner.setListener(this);
 
 
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -97,4 +106,13 @@ public class AddTaskFragment extends DialogFragment {
         return v;
     }
 
+    @Override
+    public void selectedIndices(List<Integer> indices) {
+
+    }
+
+    @Override
+    public void selectedStrings(List<String> strings) {
+
+    }
 }

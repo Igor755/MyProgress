@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="400dp"
         android:padding="10dp">
 
         <TextView
@@ -84,17 +84,16 @@
 
 </LinearLayout>
 
-        <EditText
+
+
+        <com.project.myprogress.customview.MultiSelectionSpinner
+            android:id="@+id/edit_text_progress"
             android:layout_width="250dp"
             android:layout_height="50dp"
-            android:id="@+id/edit_text_progress"
-            android:imeOptions="actionDone"
-            android:singleLine="true"
-            android:layout_centerHorizontal="true"
-            android:hint="Progress"
             android:textSize="15sp"
-            android:layout_below="@+id/container_date"
-            tools:ignore="TextFields"/>
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:layout_below="@+id/container_date"/>
 
 
        <TextView
