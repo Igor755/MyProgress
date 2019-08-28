@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/txtnameplace"
-                android:textSize="14sp"
+                android:textSize="20dp"
                 android:text="NameProgress"
                 android:textAppearance="?android:textAppearanceLarge"/>
 
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/balls"
                 android:layout_below="@id/txtnameplace"
-                android:textSize="10sp"
+                android:textSize="15dp"
                 android:text="10240"
                 android:textAppearance="?android:textAppearanceLarge"/>
 
@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/txt_menu_places"
-                android:src = "@drawable/dfd"
+                android:src = "@drawable/delete_progress_13"
                 android:background="@color/colorTransparent"
                 android:layout_gravity="bottom|end"
                 android:layout_alignParentRight="true"/>
