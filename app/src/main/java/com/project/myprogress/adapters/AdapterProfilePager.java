@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 
-import com.project.myprogress.fragments_profile.TaskFragment;
+import com.project.myprogress.fragments_profile.TasksFragment;
 import com.project.myprogress.fragments_profile.ProfileFragment;
 
 
@@ -26,7 +26,7 @@ public class AdapterProfilePager extends FragmentPagerAdapter {
                 ProfileFragment userInfoFragment = new ProfileFragment();
                 return userInfoFragment;
             case 1:
-                TaskFragment taskFragment = new TaskFragment();
+                TasksFragment taskFragment = new TasksFragment();
                 return taskFragment;
 
         }

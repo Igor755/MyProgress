@@ -12,11 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.project.myprogress.R;
+import com.project.myprogress.adapters.AdapterTypeTaskSpinner;
 import com.project.myprogress.customview.MultiSelectionSpinner;
+import com.project.myprogress.modelclass.TypeTaskModel;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -46,6 +50,18 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
         actionCancel = v.findViewById(R.id.cancel);
         etmDisplayDate = v.findViewById(R.id.tvDate);
         imageButton = v.findViewById(R.id.datePicker);
+
+
+        ArrayList<TypeTaskModel> arrayType = new ArrayList<>();
+
+        arrayType.add(new TypeTaskModel("Type 1", R.drawable.type1));
+        arrayType.add(new TypeTaskModel("Type 2", R.drawable.type2));
+        arrayType.add(new TypeTaskModel("Type 3", R.drawable.type3));
+
+        Spinner spinner = (Spinner) v.findViewById(R.id.edit_text_type);
+        AdapterTypeTaskSpinner adapterTypeTaskSpinner = new AdapterTypeTaskSpinner(getContext(),arrayType);
+        spinner.setAdapter(adapterTypeTaskSpinner);
+
 
 
         String[] array = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};

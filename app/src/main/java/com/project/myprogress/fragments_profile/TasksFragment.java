@@ -18,7 +18,7 @@ import com.project.myprogress.modelclass.TaskModel;
 import java.util.ArrayList;
 
 
-public class TaskFragment extends Fragment {
+public class TasksFragment extends Fragment {
 
     private AdapterTask adapterTask;
     private ImageButton fab;
@@ -54,6 +54,9 @@ public class TaskFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
 
+                DetailTaskFragment dialog_fragment = new DetailTaskFragment();
+                dialog_fragment.setTargetFragment(TasksFragment.this, 1);
+                dialog_fragment.show(getFragmentManager(), "DetailTaskFragment");
 
 
             }
@@ -66,7 +69,7 @@ public class TaskFragment extends Fragment {
             public void onClick(View v) {
 
                 AddTaskFragment dialog_fragment = new AddTaskFragment();
-                dialog_fragment.setTargetFragment(TaskFragment.this, 1);
+                dialog_fragment.setTargetFragment(TasksFragment.this, 1);
                 dialog_fragment.show(getFragmentManager(), "AddProgressFragment");
 
                 /*if (getActivity() instanceof MainActivity) {

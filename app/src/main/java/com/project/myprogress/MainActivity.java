@@ -12,7 +12,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.project.myprogress.adapters.AdapterProfilePager;
 import com.project.myprogress.fragments_profile.AddProgressFragment;
 import com.project.myprogress.fragments_profile.AddTaskFragment;
-import com.project.myprogress.fragments_profile.TaskFragment;
+import com.project.myprogress.fragments_profile.TasksFragment;
 import com.project.myprogress.fragments_profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         user_info_fragment = new ProfileFragment();
         add_progress_fragment = new AddProgressFragment();
-        task_fragment = new TaskFragment();
+        task_fragment = new TasksFragment();
         add_task_fragment = new AddTaskFragment();
 
        /* FragmentManager fm = getSupportFragmentManager();
