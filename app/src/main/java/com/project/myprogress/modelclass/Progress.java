@@ -1,14 +1,14 @@
 package com.project.myprogress.modelclass;
 
-public class ProgressModel {
+public class Progress {
 
     private String name_progress;
     private String balls_progress;
 
-    public ProgressModel() {
+    public Progress() {
     }
 
-    public ProgressModel(String name_progress, String balls_progress) {
+    public Progress(String name_progress, String balls_progress) {
         this.name_progress = name_progress;
         this.balls_progress = balls_progress;
     }
@@ -31,7 +31,7 @@ public class ProgressModel {
 
     @Override
     public String toString() {
-        return "ProgressModel{" +
+        return "Progress{" +
                 "name_progress='" + name_progress + '\'' +
                 '}';
     }

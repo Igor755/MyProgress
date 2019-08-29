@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterTask;
 import com.project.myprogress.interfaces.OnItemClickListener;
-import com.project.myprogress.modelclass.TaskModel;
+import com.project.myprogress.modelclass.Task;
 
 import java.util.ArrayList;
 
@@ -28,17 +28,17 @@ public class TasksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.task_fragment, container, false);
+        View v =  inflater.inflate(R.layout.fragment_task, container, false);
 
 
         fab = (ImageButton) v.findViewById(R.id.fab);
 
-        ArrayList<TaskModel> taskmodel_array = new ArrayList<>();
+        ArrayList<Task> taskmodel_array = new ArrayList<>();
 
 
         for (int i = 0; i <= 10; i++) {
 
-            TaskModel new_taskModel = new TaskModel();
+            Task new_taskModel = new Task();
             new_taskModel.setName("Big_exercise");
             new_taskModel.setDate_create("21.05.1990");
             taskmodel_array.add(i, new_taskModel);

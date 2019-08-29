@@ -32,7 +32,7 @@ public class AddProgressFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-         View v = inflater.inflate(R.layout.add_progress_fragment, container, false);
+         View v = inflater.inflate(R.layout.fragment_dialog_add_progress, container, false);
 
 
         actionOk = v.findViewById(R.id.ok);

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterTypeTaskSpinner;
 import com.project.myprogress.customview.MultiSelectionSpinner;
-import com.project.myprogress.modelclass.TypeTaskModel;
+import com.project.myprogress.modelclass.TypeTask;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -44,7 +44,7 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v = inflater.inflate(R.layout.add_task_fragment, container, false);
+        View v = inflater.inflate(R.layout.fragment_dialog_add_task, container, false);
 
         actionOk = v.findViewById(R.id.ok);
         actionCancel = v.findViewById(R.id.cancel);
@@ -52,11 +52,11 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
         imageButton = v.findViewById(R.id.datePicker);
 
 
-        ArrayList<TypeTaskModel> arrayType = new ArrayList<>();
+        ArrayList<TypeTask> arrayType = new ArrayList<>();
 
-        arrayType.add(new TypeTaskModel("Type 1", R.drawable.type1));
-        arrayType.add(new TypeTaskModel("Type 2", R.drawable.type2));
-        arrayType.add(new TypeTaskModel("Type 3", R.drawable.type3));
+        arrayType.add(new TypeTask("Type 1", R.drawable.type1));
+        arrayType.add(new TypeTask("Type 2", R.drawable.type2));
+        arrayType.add(new TypeTask("Type 3", R.drawable.type3));
 
         Spinner spinner = (Spinner) v.findViewById(R.id.edit_text_type);
         AdapterTypeTaskSpinner adapterTypeTaskSpinner = new AdapterTypeTaskSpinner(getContext(),arrayType);

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.project.myprogress.R;
-import com.project.myprogress.modelclass.TypeTaskModel;
+import com.project.myprogress.modelclass.TypeTask;
 
 import java.util.ArrayList;
 
@@ -17,9 +17,9 @@ public class AdapterTypeTaskSpinner extends BaseAdapter {
 
 
     private LayoutInflater layoutInflater;
-    private ArrayList<TypeTaskModel> typeTaskModels;
+    private ArrayList<TypeTask> typeTaskModels;
 
-    public AdapterTypeTaskSpinner(Context context, ArrayList<TypeTaskModel> typeTaskModels) {
+    public AdapterTypeTaskSpinner(Context context, ArrayList<TypeTask> typeTaskModels) {
 
         this.layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.typeTaskModels = typeTaskModels;
@@ -46,9 +46,9 @@ public class AdapterTypeTaskSpinner extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view = layoutInflater.inflate(R.layout.spiner_item_type,parent, false);
+        View view = layoutInflater.inflate(R.layout.one_item_spiner_type,parent, false);
 
-        TypeTaskModel typeTaskModel = (TypeTaskModel) getItem(position);
+        TypeTask typeTaskModel = (TypeTask) getItem(position);
 
         TextView name = (TextView) view.findViewById(R.id.name);
         name.setText(typeTaskModel.getName());

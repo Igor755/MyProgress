@@ -1,7 +1,5 @@
 package com.project.myprogress.fragments_registration;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,7 +19,7 @@ public class RegistrationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.registration_fragment, container, false);
+        return inflater.inflate(R.layout.fragment_registration, container, false);
     }
 
 

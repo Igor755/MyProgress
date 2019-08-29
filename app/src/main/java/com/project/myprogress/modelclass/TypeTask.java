@@ -1,11 +1,11 @@
 package com.project.myprogress.modelclass;
 
-public class TypeTaskModel {
+public class TypeTask {
 
     private String name;
     private int icon;
 
-    public TypeTaskModel(String name, int icon) {
+    public TypeTask(String name, int icon) {
         this.name = name;
         this.icon = icon;
     }

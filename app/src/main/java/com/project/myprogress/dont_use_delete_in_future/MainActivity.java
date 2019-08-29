@@ -1,4 +1,4 @@
-package com.project.myprogress;
+package com.project.myprogress.dont_use_delete_in_future;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterProfilePager;
 import com.project.myprogress.fragments_profile.AddProgressFragment;
 import com.project.myprogress.fragments_profile.AddTaskFragment;
@@ -17,7 +18,7 @@ import com.project.myprogress.fragments_profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    public enum MyFragmets {USER_INFO_FRAGMENT, ADD_PROGRESS_FRAGMENT, TASK_FRAGMENT, ADD_TASK_FRAGMENT}
+   /* public enum MyFragmets {USER_INFO_FRAGMENT, ADD_PROGRESS_FRAGMENT, TASK_FRAGMENT, ADD_TASK_FRAGMENT}
 
     public Fragment user_info_fragment, add_progress_fragment, task_fragment, add_task_fragment;
 
@@ -42,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
                 .add(R.id.fragment_container_main, user_info_fragment)
                 .commit();
 
-/*
+*//*
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
 
         userFragmentPagerAdapter = new AdapterProfilePager(getSupportFragmentManager(),1);
         viewPager.setAdapter(userFragmentPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);*/
+        tabLayout.setupWithViewPager(viewPager);*//*
 
 
 
@@ -85,6 +86,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    }
+    }*/
     }
 

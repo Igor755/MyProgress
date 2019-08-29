@@ -16,7 +16,7 @@ import android.widget.ImageButton;
 import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterProgress;
 import com.project.myprogress.interfaces.OnItemClickListener;
-import com.project.myprogress.modelclass.ProgressModel;
+import com.project.myprogress.modelclass.Progress;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class ProfileFragment extends Fragment implements AddProgressFragment.OnInputSelected {
 
     private AdapterProgress adapterProgress;
-    private List<ProgressModel> listItems;
+    private List<Progress> listItems;
     private ImageButton fab;
 
 
@@ -45,17 +45,17 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
 
 
 
-        View v = inflater.inflate(R.layout.profile_fragment, container, false);
+        View v = inflater.inflate(R.layout.fragment_profile, container, false);
 
         fab = (ImageButton) v.findViewById(R.id.fab);
 
 
-        ArrayList<ProgressModel> progressmodel = new ArrayList<>();
+        ArrayList<Progress> progressmodel = new ArrayList<>();
 
 
         for (int i = 0; i <= 10; i++) {
 
-            ProgressModel progressModel = new ProgressModel();
+            Progress progressModel = new Progress();
             progressModel.setBalls_progress("102890");
             progressModel.setName_progress("Intelligence");
             progressmodel.add(i, progressModel);

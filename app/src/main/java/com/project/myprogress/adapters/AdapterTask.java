@@ -15,20 +15,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.myprogress.R;
 import com.project.myprogress.interfaces.OnItemClickListener;
-import com.project.myprogress.modelclass.TaskModel;
+import com.project.myprogress.modelclass.Task;
 
 import java.util.List;
 
 public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
 
-    private List<TaskModel> listItems;
+    private List<Task> listItems;
     public Context mContext;
     private OnItemClickListener itemClickListener;
     private AlertDialog builder;
 
 
 
-    public AdapterTask(List<TaskModel> listItems,Context mContext, OnItemClickListener itemClickListener) {
+    public AdapterTask(List<Task> listItems, Context mContext, OnItemClickListener itemClickListener) {
         this.itemClickListener =itemClickListener;
         this.listItems = listItems;
         this.mContext = mContext;
@@ -44,7 +44,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
 
-        final TaskModel itemList = listItems.get(position);
+        final Task itemList = listItems.get(position);
 
 
 

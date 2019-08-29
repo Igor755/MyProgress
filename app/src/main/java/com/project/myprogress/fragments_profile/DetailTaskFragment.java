@@ -1,11 +1,8 @@
 package com.project.myprogress.fragments_profile;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +18,7 @@ public class DetailTaskFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v =  inflater.inflate(R.layout.detail_task_fragment, container, false);
+        View v =  inflater.inflate(R.layout.fragment_dialog_detail_task, container, false);
 
         return v;
     }

@@ -1,6 +1,6 @@
 package com.project.myprogress.modelclass;
 
-public class TaskModel {
+public class Task {
 
     private String type;
     private String name;
@@ -9,11 +9,11 @@ public class TaskModel {
     private String select_progress;
     private String date_create;
 
-    public TaskModel() {
+    public Task() {
 
     }
 
-    public TaskModel(String type, String name, String description, String date_end, String select_progress, String date_create) {
+    public Task(String type, String name, String description, String date_end, String select_progress, String date_create) {
         this.type = type;
         this.name = name;
         this.description = description;
@@ -72,7 +72,7 @@ public class TaskModel {
 
     @Override
     public String toString() {
-        return "TaskModel{" +
+        return "Task{" +
                 "type='" + type + '\'' +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
