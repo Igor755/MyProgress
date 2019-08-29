@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.project.myprogress.AuthActivity;
+import com.project.myprogress.Main2Activity;
 import com.project.myprogress.MainActivity;
 import com.project.myprogress.R;
 
@@ -48,7 +49,7 @@ public class SignInFragment extends Fragment {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), Main2Activity.class);
                 startActivity(intent);
             }
         });

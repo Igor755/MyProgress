@@ -37,18 +37,18 @@ public class MainActivity extends AppCompatActivity {
         task_fragment = new TasksFragment();
         add_task_fragment = new AddTaskFragment();
 
-       /* FragmentManager fm = getSupportFragmentManager();
+        FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction()
                 .add(R.id.fragment_container_main, user_info_fragment)
                 .commit();
-*/
 
+/*
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
 
         userFragmentPagerAdapter = new AdapterProfilePager(getSupportFragmentManager(),1);
         viewPager.setAdapter(userFragmentPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setupWithViewPager(viewPager);*/
 
 
 
