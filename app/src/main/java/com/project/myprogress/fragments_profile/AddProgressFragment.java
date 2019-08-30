@@ -37,7 +37,7 @@ public class AddProgressFragment extends DialogFragment {
 
         actionOk = v.findViewById(R.id.ok);
         actionCancel = v.findViewById(R.id.cancel);
-        nameProgress = v.findViewById(R.id.edit_text_name);
+        nameProgress = v.findViewById(R.id.edit_progress_name);
 
 
 

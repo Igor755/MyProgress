@@ -50,8 +50,8 @@ public class AdapterTypeTaskSpinner extends BaseAdapter {
 
         TypeTask typeTaskModel = (TypeTask) getItem(position);
 
-        TextView name = (TextView) view.findViewById(R.id.name);
-        name.setText(typeTaskModel.getName());
+        TextView name_type = (TextView) view.findViewById(R.id.name_type);
+        name_type.setText(typeTaskModel.getName());
 
         ImageView icon_type = (ImageView) view.findViewById(R.id.icon_type);
         icon_type.setImageResource(typeTaskModel.getIcon());

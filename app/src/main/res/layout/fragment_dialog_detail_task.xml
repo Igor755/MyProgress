@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
-            android:id="@+id/text"
-            android:text="Detail Task"
+            android:id="@+id/header_detail_task"
+            android:text="@string/detail_task"
             android:gravity="center"/>
 
         <LinearLayout
@@ -27,7 +27,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:id="@+id/container_date"
-            android:layout_below="@+id/text"
+            android:layout_below="@+id/header_detail_task"
             android:gravity="center">
 
             <TextView
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:textColor="@color/colorAccent"
-                android:hint="Type exercise"
+                android:hint="@string/type_exercize"
                 android:gravity="center"
                 android:textSize="15sp"/>
 
@@ -51,20 +51,6 @@
         </LinearLayout>
 
 
-
-
-        <!--
-                <EditText
-                    android:layout_width="250dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/edit_text_type"
-                    android:imeOptions="actionDone"
-                    android:singleLine="true"
-                    android:layout_centerHorizontal="true"
-                    android:hint="Type"
-                    android:textSize="15sp"
-                    android:layout_below="@+id/text"
-                    tools:ignore="TextFields"/>-->
 
         <EditText
             android:layout_width="250dp"
@@ -85,7 +71,7 @@
             android:imeOptions="actionDone"
             android:singleLine="true"
             android:layout_centerHorizontal="true"
-            android:hint="Description"
+            android:hint="@string/description"
             android:textSize="15sp"
             android:layout_below="@+id/edit_text_name"
             tools:ignore="TextFields"/>
@@ -111,7 +97,7 @@
             android:imeOptions="actionDone"
             android:singleLine="true"
             android:layout_centerHorizontal="true"
-            android:hint="Progress"
+            android:hint="@string/progress"
             android:textSize="15sp"
             android:layout_below="@+id/edit_text_date"
             tools:ignore="TextFields"/>
@@ -125,7 +111,7 @@
             android:imeOptions="actionDone"
             android:singleLine="true"
             android:layout_centerHorizontal="true"
-            android:hint="Date create"
+            android:hint="@string/date_create"
             android:textSize="15sp"
             android:layout_below="@+id/edit_text_progress"
             tools:ignore="TextFields"/>
@@ -137,7 +123,7 @@
             android:imeOptions="actionDone"
             android:singleLine="true"
             android:layout_centerHorizontal="true"
-            android:hint="Intent"
+            android:hint="@string/intent"
             android:textSize="15sp"
             android:layout_below="@+id/edit_text_date_create"
             tools:ignore="TextFields"/>
@@ -170,7 +156,7 @@
                 android:layout_marginLeft="50dp"
                 android:textColor="@color/colorWhite"
                 android:background="@color/colorRed"
-                android:text="EXERCISE FAIL"/>
+                android:text="@string/exercize_fail"/>
 
         </LinearLayout>
 
@@ -182,7 +168,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="30dp"
             android:id="@+id/ok"
-            android:text="OK"/>
+            android:text="@string/ok"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -191,7 +177,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="30dp"
             android:id="@+id/cancel"
-            android:text="CANCEL"
+            android:text="@string/cancel"
             android:gravity="center"/>
 
     </RelativeLayout>

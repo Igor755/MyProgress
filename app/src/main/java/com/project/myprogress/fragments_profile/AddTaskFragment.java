@@ -58,14 +58,14 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
         arrayType.add(new TypeTask("Type 2", R.drawable.type2));
         arrayType.add(new TypeTask("Type 3", R.drawable.type3));
 
-        Spinner spinner = (Spinner) v.findViewById(R.id.edit_text_type);
+        Spinner spinner_type = (Spinner) v.findViewById(R.id.spinner_type);
         AdapterTypeTaskSpinner adapterTypeTaskSpinner = new AdapterTypeTaskSpinner(getContext(),arrayType);
-        spinner.setAdapter(adapterTypeTaskSpinner);
+        spinner_type.setAdapter(adapterTypeTaskSpinner);
 
 
 
         String[] array = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
-        MultiSelectionSpinner multiSelectionSpinner = (MultiSelectionSpinner) v.findViewById(R.id.edit_text_progress);
+        MultiSelectionSpinner multiSelectionSpinner = (MultiSelectionSpinner) v.findViewById(R.id.multiselection_spinner_progress);
         multiSelectionSpinner.setItems(array);
         multiSelectionSpinner.setSelection(new int[]{2, 6});
         multiSelectionSpinner.setListener(this);

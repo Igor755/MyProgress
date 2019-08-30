@@ -27,11 +27,6 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
     private AlertDialog builder;
 
 
-    /*public PlacesUserAdapter(List<Places> listItems, Context mContext) {
-        this.listItems = listItems;
-        this.mContext = mContext;
-    }*/
-
     public AdapterProgress(List<Progress> listItems, Context mContext, OnItemClickListener itemClickListener) {
         this.itemClickListener =itemClickListener;
         this.listItems = listItems;
@@ -52,15 +47,15 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
 
 
 
-        holder.txtNameProgress.setText(itemList.getName_progress());
-        holder.txtBallsProgress.setText(itemList.getBalls_progress());
-        holder.deleteItem.setOnClickListener(new View.OnClickListener() {
+        holder.name_progress.setText(itemList.getName_progress());
+        holder.point.setText(itemList.getBalls_progress());
+        holder.delete_progress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
                 builder = new AlertDialog.Builder(v.getRootView().getContext()).create();
-                builder.setTitle("Delete Item?");
+                builder.setTitle("Delete Progress?");
                 builder.setMessage("You seriosly?");
                 builder.setButton(Dialog.BUTTON_POSITIVE, mContext.getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                     @Override
@@ -97,16 +92,16 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView txtNameProgress;
-        TextView txtBallsProgress;
-        ImageButton deleteItem;
+        TextView name_progress;
+        TextView point;
+        ImageButton delete_progress;
 
         ViewHolder(View itemView) {
             super(itemView);
 
-            txtNameProgress = (TextView) itemView.findViewById(R.id.txtnameplace);
-            txtBallsProgress = (TextView) itemView.findViewById(R.id.balls);
-            deleteItem = (ImageButton) itemView.findViewById(R.id.txt_menu_places);
+            name_progress = (TextView) itemView.findViewById(R.id.name_progress);
+            point = (TextView) itemView.findViewById(R.id.point);
+            delete_progress = (ImageButton) itemView.findViewById(R.id.delete_progress);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

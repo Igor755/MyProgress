@@ -28,7 +28,7 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
 
     private AdapterProgress adapterProgress;
     private List<Progress> listItems;
-    private ImageButton fab;
+    private ImageButton add_progress;
 
 
     @Override
@@ -47,7 +47,7 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
 
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        fab = (ImageButton) v.findViewById(R.id.fab);
+        add_progress = (ImageButton) v.findViewById(R.id.add_progress);
 
 
         ArrayList<Progress> progressmodel = new ArrayList<>();
@@ -64,7 +64,7 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
         }
 
 
-        RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
+        RecyclerView recyclerView = v.findViewById(R.id.recycler_view_progress);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapterProgress = new AdapterProgress(progressmodel, getContext(), new OnItemClickListener() {
@@ -76,7 +76,7 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
 
         recyclerView.setAdapter(adapterProgress);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        add_progress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

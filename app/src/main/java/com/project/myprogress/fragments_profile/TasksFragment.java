@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerTitleStrip;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 
 
 public class TasksFragment extends Fragment {
+
 
     private AdapterTask adapterTask;
     private ImageButton fab;
@@ -76,15 +78,13 @@ public class TasksFragment extends Fragment {
        ViewPager viewPager = (ViewPager) v.findViewById(R.id.viewpager);
        // tabLayout = (TabLayout) v.findViewById(R.id.sliding_tabs);
 
-        userFragmentPagerAdapter = new AdapterProfilePager(getFragmentManager(),1,getContext());
-        viewPager.setAdapter(userFragmentPagerAdapter);
+       /* userFragmentPagerAdapter = new AdapterProfilePager(getFragmentManager(),1,getContext());
+        viewPager.setAdapter(userFragmentPagerAdapter);*/
         //tabLayout.setupWithViewPager(viewPager);
-        PagerTitleStrip pagerTitleStrip = v.findViewById(R.id.pager_title_strip);
-        pagerTitleStrip.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
-        pagerTitleStrip.setTextColor(Color.GREEN);
 
 
-        /*RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
+
+        RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapterTask = new AdapterTask(taskmodel_array, getContext(), new OnItemClickListener() {
@@ -99,7 +99,8 @@ public class TasksFragment extends Fragment {
             }
         });
 
-        recyclerView.setAdapter(adapterTask);*/
+        recyclerView.setAdapter(adapterTask);
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,11 +110,12 @@ public class TasksFragment extends Fragment {
                 dialog_fragment.setTargetFragment(TasksFragment.this, 1);
                 dialog_fragment.show(getFragmentManager(), "AddProgressFragment");
 
-                /*if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).VisibleFragmentMainActivity(ADD_TASK_FRAGMENT);
-                }*/
 
-            }
+
+                }
+
+
+
         });
 
 
@@ -143,3 +145,4 @@ public class TasksFragment extends Fragment {
     }
 
 }
+

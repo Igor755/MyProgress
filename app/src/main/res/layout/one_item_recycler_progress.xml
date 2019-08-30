@@ -17,7 +17,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/txtnameplace"
+                android:id="@+id/name_progress"
                 android:textSize="20dp"
                 android:text="NameProgress"
                 android:textAppearance="?android:textAppearanceLarge"/>
@@ -26,8 +26,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/balls"
-                android:layout_below="@id/txtnameplace"
+                android:id="@+id/point"
+                android:layout_below="@id/name_progress"
                 android:textSize="15dp"
                 android:text="10240"
                 android:textAppearance="?android:textAppearanceLarge"/>
@@ -37,7 +37,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txt_menu_places"
+                android:id="@+id/delete_progress"
                 android:src = "@drawable/delete_progress_13"
                 android:background="@color/colorTransparent"
                 android:layout_gravity="bottom|end"

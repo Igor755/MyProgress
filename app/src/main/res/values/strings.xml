@@ -36,11 +36,12 @@
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
+
+
     <string name="title_activity_main2">Main2Activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Navigation menu</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
@@ -53,11 +54,24 @@
 
 
 
-    <string-array name="TaskTitles">
-        <item>Васька</item>
-        <item>Барсик</item>
-        <item>Мурзик</item>
-    </string-array>
+    <string name="benefit">What a benefit to me in developing this area?</string>
+    <string name="add_task">Add task?</string>
+    <string name="select_date">SELECT DATE END</string>
+    <string name="detail_task">Detail Task</string>
+    <string name="type_exercize">Type exercise</string>
+    <string name="description">Description</string>
+    <string name="progress">Progress</string>
+    <string name="date_create">Date create</string>
+    <string name="intent">Intent</string>
+    <string name="exercize_fail">EXERCISE FAIL</string>
+    <string name="change_photo">CHANGE PHOTO</string>
+    <string name="delete_progress">Delete Progress?</string>
+    <string name="seriosly">You seriosly?</string>
+
+
+
+
+
 
 
 </resources>

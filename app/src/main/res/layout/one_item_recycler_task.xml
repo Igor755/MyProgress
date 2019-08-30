@@ -18,7 +18,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/name"
+                android:id="@+id/name_task"
                 android:textSize="20dp"
                 android:text="@string/Name"
                 android:textAppearance="?android:textAppearanceLarge"/>
@@ -29,13 +29,13 @@
                 android:textSize="15dp"
                 android:text="Date create"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:layout_below="@id/name"/>
+                android:layout_below="@id/name_task"/>
 
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/txt_menu_places"
+                android:id="@+id/delete_task"
                 android:src = "@drawable/grey25"
                 android:background="@color/colorTransparent"
                 android:layout_gravity="bottom|end"

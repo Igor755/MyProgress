@@ -48,9 +48,9 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
 
 
 
-        holder.name.setText(itemList.getName());
+        holder.name_task.setText(itemList.getName());
         holder.date_create.setText(itemList.getDate_create());
-        holder.icon.setOnClickListener(new View.OnClickListener() {
+        holder.delete_task.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -93,16 +93,16 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView name;
+        TextView name_task;
         TextView date_create;
-        ImageButton icon;
+        ImageButton delete_task;
 
         ViewHolder(View itemView) {
             super(itemView);
 
-            name = (TextView) itemView.findViewById(R.id.name);
+            name_task = (TextView) itemView.findViewById(R.id.name_task);
             date_create = (TextView) itemView.findViewById(R.id.date_create);
-            icon = (ImageButton) itemView.findViewById(R.id.txt_menu_places);
+            delete_task = (ImageButton) itemView.findViewById(R.id.delete_task);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

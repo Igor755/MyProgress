@@ -35,13 +35,16 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
 
 
+
     public enum MyFragmets {USER_INFO_FRAGMENT, ADD_PROGRESS_FRAGMENT, TASK_FRAGMENT, ADD_TASK_FRAGMENT}
 
     public Fragment user_info_fragment, add_progress_fragment, task_fragment, add_task_fragment;
     NavController navController;
 
-    AdapterProfilePager userFragmentPagerAdapter;
+    public Fragment blank;
 
+    AdapterProfilePager userFragmentPagerAdapter;
+    FragmentManager fm = getSupportFragmentManager();
     TabItem profile, tasks;
     TabLayout tabLayout;
 
@@ -59,24 +62,11 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         task_fragment = new TasksFragment();
         add_task_fragment = new AddTaskFragment();
 
-        FragmentManager fm = getSupportFragmentManager();
+
         fm.beginTransaction()
                 .add(R.id.nav_host_fragment, user_info_fragment)
                 .commit();
 
-       /*DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
-                .setDrawerLayout(drawer)
-                .build();
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
-        navigationView.bringToFront();*/
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -90,7 +80,13 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+
+
+
+
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,6 +105,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
+
         FragmentTransaction fragmentTransaction  = getSupportFragmentManager().beginTransaction();
 
         if(id == R.id.nav_home){
@@ -116,6 +113,9 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
             fragmentTransaction.replace(R.id.nav_host_fragment, user_info_fragment);
 
         }else if (id == R.id.nav_gallery){
+
+
+
 
             fragmentTransaction.replace(R.id.nav_host_fragment, task_fragment);
 
@@ -130,4 +130,28 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
         return true;
     }
+
+    public void VisibleFragmentAuthActivity(MyFragmets visiblefragment) {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+
+        switch (visiblefragment) {
+            case TASK_FRAGMENT:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, blank)
+                        .commit();
+                break;
+            case USER_INFO_FRAGMENT:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.nav_host_fragment, user_info_fragment)
+                        .commit();
+                break;
+
+        }
+
+
+    }
+
+
 }

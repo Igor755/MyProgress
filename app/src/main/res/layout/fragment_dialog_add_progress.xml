@@ -16,20 +16,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/text"
-        android:text="What a benefit to me in developing this area?"
+        android:id="@+id/header_add_progress"
+        android:text="@string/benefit"
         android:gravity="center"/>
 
     <EditText
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:id="@+id/edit_text_name"
+        android:id="@+id/edit_progress_name"
         android:imeOptions="actionDone"
         android:singleLine="true"
         android:layout_centerHorizontal="true"
         android:hint="@string/Name"
         android:textSize="15sp"
-        android:layout_below="@+id/text"
+        android:layout_below="@+id/header_add_progress"
         tools:ignore="TextFields"/>
 
 
@@ -40,7 +40,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="30dp"
         android:id="@+id/ok"
-        android:text="OK"/>
+        android:text="@string/ok"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -49,7 +49,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="30dp"
         android:id="@+id/cancel"
-        android:text="CANCEL"
+        android:text="@string/cancel"
         android:gravity="center"/>
     </RelativeLayout>
 

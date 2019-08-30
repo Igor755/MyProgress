@@ -30,14 +30,14 @@ public class AdapterProfilePager extends FragmentPagerAdapter {
 
 
         Resources resources = context.getResources();
-        mCatNames = resources.getStringArray(R.array.TaskTitles);
+       // mCatNames = resources.getStringArray(R.array.TaskTitles);
     }
 
     @Override
     public Fragment getItem(int position) {
 
         Bundle arguments = new Bundle();
-        arguments.putString(TasksFragment.CAT_NAMES, mCatNames[position]);
+        //arguments.putString(TasksFragment.CAT_NAMES, mCatNames[position]);
 
 
         TasksFragment catsFragment = new TasksFragment();
