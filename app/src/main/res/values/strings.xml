@@ -51,4 +51,13 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
 
+
+
+    <string-array name="TaskTitles">
+        <item>Васька</item>
+        <item>Барсик</item>
+        <item>Мурзик</item>
+    </string-array>
+
+
 </resources>

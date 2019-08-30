@@ -1,16 +1,24 @@
 package com.project.myprogress.fragments_profile;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerTitleStrip;
+import androidx.viewpager.widget.ViewPager;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 import com.project.myprogress.R;
+import com.project.myprogress.adapters.AdapterProfilePager;
 import com.project.myprogress.adapters.AdapterTask;
 import com.project.myprogress.interfaces.OnItemClickListener;
 import com.project.myprogress.modelclass.Task;
@@ -22,6 +30,19 @@ public class TasksFragment extends Fragment {
 
     private AdapterTask adapterTask;
     private ImageButton fab;
+
+    AdapterProfilePager userFragmentPagerAdapter;
+
+    TabItem profile, tasks;
+    TabLayout tabLayout;
+
+    public static final String CAT_NAMES = "cats_names";
+
+
+    public TasksFragment(){
+
+    }
+
 
 
     @Override
@@ -46,8 +67,24 @@ public class TasksFragment extends Fragment {
 
         }
 
+        Bundle arguments = getArguments();
+        if (arguments != null) {
 
-        RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
+            displayValues(v, taskmodel_array);
+        }
+
+       ViewPager viewPager = (ViewPager) v.findViewById(R.id.viewpager);
+       // tabLayout = (TabLayout) v.findViewById(R.id.sliding_tabs);
+
+        userFragmentPagerAdapter = new AdapterProfilePager(getFragmentManager(),1,getContext());
+        viewPager.setAdapter(userFragmentPagerAdapter);
+        //tabLayout.setupWithViewPager(viewPager);
+        PagerTitleStrip pagerTitleStrip = v.findViewById(R.id.pager_title_strip);
+        pagerTitleStrip.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+        pagerTitleStrip.setTextColor(Color.GREEN);
+
+
+        /*RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapterTask = new AdapterTask(taskmodel_array, getContext(), new OnItemClickListener() {
@@ -62,7 +99,7 @@ public class TasksFragment extends Fragment {
             }
         });
 
-        recyclerView.setAdapter(adapterTask);
+        recyclerView.setAdapter(adapterTask);*/
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +118,28 @@ public class TasksFragment extends Fragment {
 
 
         return v;
+    }
+    private void displayValues(View v, ArrayList<Task> taskmodel_array2) {
+
+
+
+
+        RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapterTask = new AdapterTask(taskmodel_array2, getContext(), new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+
+                DetailTaskFragment dialog_fragment = new DetailTaskFragment();
+                dialog_fragment.setTargetFragment(TasksFragment.this, 1);
+                dialog_fragment.show(getFragmentManager(), "DetailTaskFragment");
+
+
+            }
+        });
+        recyclerView.setAdapter(adapterTask);
+
     }
 
 }
