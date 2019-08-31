@@ -1,5 +1,6 @@
 package com.project.myprogress.adapters;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +26,6 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
     private List<Task> listItems;
     public Context mContext;
     private OnItemClickListener itemClickListener;
-    private AlertDialog builder;
 
 
 
@@ -40,6 +41,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
         return new AdapterTask.ViewHolder(v);
     }
 
+    @SuppressLint("NewApi")
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
@@ -50,40 +52,10 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
 
         holder.name_task.setText(itemList.getName());
         holder.date_create.setText(itemList.getDate_create());
-        holder.delete_task.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                builder = new AlertDialog.Builder(v.getRootView().getContext()).create();
-                builder.setTitle("Delete Item?");
-                builder.setMessage("You seriosly?");
-                builder.setButton(Dialog.BUTTON_POSITIVE, mContext.getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+        holder.description.setText(itemList.getDescription());
 
 
 
-                        Toast.makeText(mContext, R.string.delete, Toast.LENGTH_LONG).show();
-
-
-
-                    }
-                });
-                builder.setButton(Dialog.BUTTON_NEGATIVE, mContext.getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(mContext, mContext.getResources().getString(R.string.cancel), Toast.LENGTH_LONG).show();
-
-
-                    }
-                });
-
-                builder.show();
-
-
-            }
-        });
     }
 
     @Override
@@ -95,14 +67,19 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
 
         TextView name_task;
         TextView date_create;
-        ImageButton delete_task;
+        TextView description;
+        ImageView complete_task;
+        ImageView icon_type;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             name_task = (TextView) itemView.findViewById(R.id.name_task);
             date_create = (TextView) itemView.findViewById(R.id.date_create);
-            delete_task = (ImageButton) itemView.findViewById(R.id.delete_task);
+            description = (TextView) itemView.findViewById(R.id.descriprion);
+            complete_task = (ImageView) itemView.findViewById(R.id.complete_task);
+            icon_type = (ImageView) itemView.findViewById(R.id.icon_type);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

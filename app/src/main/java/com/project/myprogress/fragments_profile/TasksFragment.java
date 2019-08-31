@@ -64,7 +64,10 @@ public class TasksFragment extends Fragment {
             Task new_taskModel = new Task();
             new_taskModel.setName("Big_exercise");
             new_taskModel.setDate_create("21.05.1990");
+            new_taskModel.setDescription("Every day in elementary school in America begins at 9.20 a.m. " +
+                    "Children have classes till 3.15 p.m. At 12 o’clock children have lunch.");
             taskmodel_array.add(i, new_taskModel);
+
 
 
         }

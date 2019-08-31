@@ -54,9 +54,9 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
 
         ArrayList<TypeTask> arrayType = new ArrayList<>();
 
-        arrayType.add(new TypeTask("Type 1", R.drawable.type1));
-        arrayType.add(new TypeTask("Type 2", R.drawable.type2));
-        arrayType.add(new TypeTask("Type 3", R.drawable.type3));
+        arrayType.add(new TypeTask("Type 1", R.drawable.icon_type_goal_1));
+        arrayType.add(new TypeTask("Type 2", R.drawable.icon_type_sub_goal_2));
+        arrayType.add(new TypeTask("Type 3", R.drawable.icon_type_3));
 
         Spinner spinner_type = (Spinner) v.findViewById(R.id.spinner_type);
         AdapterTypeTaskSpinner adapterTypeTaskSpinner = new AdapterTypeTaskSpinner(getContext(),arrayType);

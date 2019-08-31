@@ -42,11 +42,11 @@
 
             <ImageView
                 android:id="@+id/datePicker"
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_above="@+id/tvDate"
                 android:layout_height="30dp"
                 android:background="@color/colorTransparent"
-                android:src="@drawable/type1" />
+                android:src="@drawable/icon_type_3" />
 
         </LinearLayout>
 
@@ -143,19 +143,19 @@
             <ImageView
 
                 android:id="@+id/complete"
-                android:layout_width="wrap_content"
+                android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@color/colorTransparent"
                 android:src="@drawable/galochka" />
 
 
 
-            <Button
-                android:layout_width="120dp"
+            <ImageButton
+                android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="50dp"
-                android:textColor="@color/colorWhite"
-                android:background="@color/colorRed"
+                android:src="@drawable/white_krest"
+                android:background="@color/colorTransparent"
                 android:text="@string/exercize_fail"/>
 
         </LinearLayout>

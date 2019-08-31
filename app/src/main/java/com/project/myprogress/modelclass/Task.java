@@ -1,8 +1,11 @@
 package com.project.myprogress.modelclass;
 
+import android.graphics.drawable.Icon;
+import android.media.Image;
+
 public class Task {
 
-    private String type;
+    private Icon type;
     private String name;
     private String description;
     private String date_end;
@@ -13,7 +16,7 @@ public class Task {
 
     }
 
-    public Task(String type, String name, String description, String date_end, String select_progress, String date_create) {
+    public Task(Icon type, String name, String description, String date_end, String select_progress, String date_create) {
         this.type = type;
         this.name = name;
         this.description = description;
@@ -22,11 +25,11 @@ public class Task {
         this.date_create = date_create;
     }
 
-    public String getType() {
+    public Icon getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Icon type) {
         this.type = type;
     }
 

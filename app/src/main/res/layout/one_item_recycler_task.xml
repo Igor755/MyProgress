@@ -22,24 +22,49 @@
                 android:textSize="20dp"
                 android:text="@string/Name"
                 android:textAppearance="?android:textAppearanceLarge"/>
+
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/date_create"
                 android:textSize="15dp"
-                android:text="Date create"
+                android:text="@string/date_create"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_below="@id/name_task"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/descriprion"
+                android:textSize="15dp"
+                android:text="@string/description"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:layout_below="@id/date_create"/>
 
-            <ImageButton
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/delete_task"
-                android:src = "@drawable/grey25"
+                android:id="@+id/complete_task"
+                android:src = "@drawable/grey24_n"
+                android:layout_marginTop="5dp"
                 android:background="@color/colorTransparent"
                 android:layout_gravity="bottom|end"
                 android:layout_alignParentRight="true"/>
+
+
+            <ImageView
+                android:id="@+id/icon_type"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@+id/complete_task"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="0dp"
+                android:background="@color/colorTransparent"
+                android:src="@drawable/icon_type_goal_1" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
