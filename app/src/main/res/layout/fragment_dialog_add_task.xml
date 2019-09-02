@@ -28,18 +28,7 @@
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/text_add_task"/>
 
-<!--
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:id="@+id/edit_text_type"
-            android:imeOptions="actionDone"
-            android:singleLine="true"
-            android:layout_centerHorizontal="true"
-            android:hint="Type"
-            android:textSize="15sp"
-            android:layout_below="@+id/text"
-            tools:ignore="TextFields"/>-->
+
 
         <EditText
             android:layout_width="250dp"
