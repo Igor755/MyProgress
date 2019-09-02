@@ -19,6 +19,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.project.myprogress.adapters.AdapterProfilePager;
+import com.project.myprogress.fragments_container.ContainerFragment;
 import com.project.myprogress.fragments_profile.AddProgressFragment;
 import com.project.myprogress.fragments_profile.AddTaskFragment;
 import com.project.myprogress.fragments_profile.ProfileFragment;
@@ -41,7 +42,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     public Fragment user_info_fragment, add_progress_fragment, task_fragment, add_task_fragment;
     NavController navController;
 
-    public Fragment blank;
+    public Fragment container_fragment;
 
     AdapterProfilePager userFragmentPagerAdapter;
     FragmentManager fm = getSupportFragmentManager();
@@ -61,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         add_progress_fragment = new AddProgressFragment();
         task_fragment = new TasksFragment();
         add_task_fragment = new AddTaskFragment();
+        container_fragment = new ContainerFragment();
 
 
         fm.beginTransaction()
@@ -115,9 +117,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         }else if (id == R.id.nav_gallery){
 
 
-
-
-            fragmentTransaction.replace(R.id.nav_host_fragment, task_fragment);
+            fragmentTransaction.replace(R.id.nav_host_fragment, container_fragment);
 
         }fragmentTransaction.commit();
 
@@ -139,7 +139,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         switch (visiblefragment) {
             case TASK_FRAGMENT:
                 fragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment, blank)
+                        .replace(R.id.nav_host_fragment, container_fragment)
                         .commit();
                 break;
             case USER_INFO_FRAGMENT:
