@@ -1,5 +1,6 @@
 package com.project.myprogress;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.MenuItem;
@@ -44,8 +45,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
     AdapterProfilePager userFragmentPagerAdapter;
     FragmentManager fm = getSupportFragmentManager();
-    TabItem profile, tasks;
-    TabLayout tabLayout;
+
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -80,11 +80,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
-
-
     }
-
-
 
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,9 +105,10 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
         if (id == R.id.nav_profile) {
 
-            fragmentTransaction
-                    .replace(R.id.nav_host_fragment, user_info_fragment)
-                    .commit();
+                fragmentTransaction
+                        .replace(R.id.nav_host_fragment, user_info_fragment)
+                        .commit();
+
 
         } else if (id == R.id.nav_task) {
 
@@ -129,6 +126,11 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
 
         return true;
+    }
+    @Override
+    public void onBackPressed() {
+        Intent setIntent = new Intent(this, AuthActivity.class);
+        startActivity(setIntent);
     }
 
 

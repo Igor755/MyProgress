@@ -39,6 +39,12 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
         setHasOptionsMenu(true);
     }
 
+    public static Fragment newInstance()
+    {
+        ProfileFragment myFragment = new ProfileFragment();
+        return myFragment;
+    }
+
 
 
 
