@@ -35,8 +35,6 @@ import android.view.Menu;
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-
-
     public enum MyFragmets {USER_INFO_FRAGMENT, ADD_PROGRESS_FRAGMENT, TASK_FRAGMENT, ADD_TASK_FRAGMENT}
 
     public Fragment user_info_fragment, add_progress_fragment, task_fragment, add_task_fragment;
@@ -84,8 +82,6 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         navigationView.bringToFront();
 
 
-
-
     }
 
 
@@ -103,55 +99,40 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
 
-        FragmentTransaction fragmentTransaction  = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
-        if(id == R.id.nav_profile){
+        if (id == R.id.nav_profile) {
 
-            fragmentTransaction.replace(R.id.nav_host_fragment, user_info_fragment);
+            fragmentTransaction
+                    .replace(R.id.nav_host_fragment, user_info_fragment)
+                    .commit();
 
-        }else if (id == R.id.nav_task){
+        } else if (id == R.id.nav_task) {
 
 
-            fragmentTransaction.replace(R.id.nav_host_fragment, container_fragment);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .addToBackStack(null)
+                    .replace(R.id.nav_host_fragment, container_fragment)
+                    .commit();
 
-        }fragmentTransaction.commit();
+        }
 
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerLayout.closeDrawer(GravityCompat.START);
 
 
-
-
-
         return true;
-    }
-
-    public void VisibleFragmentAuthActivity(MyFragmets visiblefragment) {
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-
-        switch (visiblefragment) {
-            case TASK_FRAGMENT:
-                fragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment, container_fragment)
-                        .commit();
-                break;
-            case USER_INFO_FRAGMENT:
-                fragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment, user_info_fragment)
-                        .commit();
-                break;
-
-        }
-
-
     }
 
 
 }
+
+
+

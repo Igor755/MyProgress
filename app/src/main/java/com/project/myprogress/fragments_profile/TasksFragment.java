@@ -1,10 +1,12 @@
 package com.project.myprogress.fragments_profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,6 +37,12 @@ public class TasksFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    public static Fragment newInstance()
+    {
+        TasksFragment myFragment = new TasksFragment();
+        return myFragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,7 +66,7 @@ public class TasksFragment extends Fragment {
             RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            
+
             adapterTask = new AdapterTask(taskmodel_array, getContext(), new OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
@@ -109,6 +117,7 @@ public class TasksFragment extends Fragment {
 
         return false;
     }
+
 
 
     }

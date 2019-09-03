@@ -13,12 +13,13 @@ import com.project.myprogress.AuthActivity;
 import com.project.myprogress.ProfileActivity;
 import com.project.myprogress.R;
 
+import static com.project.myprogress.AuthActivity.MyFragmets.FORGOT_PASSWORD_FRAGMENT;
 import static com.project.myprogress.AuthActivity.MyFragmets.REGISTRATION_FRAGMENT;
 
 
 public class SignInFragment extends Fragment {
 
-    public TextView btnRegister;
+    public TextView btnRegister,btnForgotPassword;
     public Button btnSignIn;
 
 
@@ -30,6 +31,7 @@ public class SignInFragment extends Fragment {
 
 
         btnRegister = (TextView) v.findViewById(R.id.btn_registration);
+        btnForgotPassword = (TextView) v.findViewById(R.id.btn_forgot_password);
         btnSignIn = (Button) v.findViewById(R.id.btn_sign_in);
 
 
@@ -37,9 +39,9 @@ public class SignInFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (getActivity() instanceof AuthActivity) {
-                    ((AuthActivity) getActivity()).VisibleFragmentAuthActivity(REGISTRATION_FRAGMENT);
-                }
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container_auth, RegistrationFragment.newInstance())
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
@@ -48,6 +50,19 @@ public class SignInFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), ProfileActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getFragmentManager().beginTransaction().replace(R.id.fragment_container_auth, ForgotPasswordFragment.newInstance())
+                        .addToBackStack(null)
+                        .commit();
+
+
+
             }
         });
 
