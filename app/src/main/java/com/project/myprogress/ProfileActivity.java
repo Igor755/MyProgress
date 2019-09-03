@@ -90,12 +90,12 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
 
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_profile_activity, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -110,11 +110,11 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
         FragmentTransaction fragmentTransaction  = getSupportFragmentManager().beginTransaction();
 
-        if(id == R.id.nav_home){
+        if(id == R.id.nav_profile){
 
             fragmentTransaction.replace(R.id.nav_host_fragment, user_info_fragment);
 
-        }else if (id == R.id.nav_gallery){
+        }else if (id == R.id.nav_task){
 
 
             fragmentTransaction.replace(R.id.nav_host_fragment, container_fragment);

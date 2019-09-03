@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/complete_task"
-                android:src = "@drawable/grey24_n"
+                android:src = "@drawable/galochka_grey24"
                 android:layout_marginTop="5dp"
                 android:background="@color/colorTransparent"
                 android:layout_gravity="bottom|end"

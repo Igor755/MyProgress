@@ -7,29 +7,25 @@
     tools:context=".fragments_profile.ProfileFragment">
 
 
-    <FrameLayout
-        android:id="@+id/frameLayout_user_photo"
+    <ImageView
+        android:id="@+id/photo_user"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        tools:ignore="MissingConstraints">
-
-        <ImageView
-            android:id="@+id/photo_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/photo_user" />
-
-    </FrameLayout>
-
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/photo_user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="120dp"
         tools:ignore="MissingConstraints">
 
         <TableRow
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="wrap_content">
 
             <TextView
@@ -46,7 +42,15 @@
                 android:id="@+id/next_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="next level 10240 point" />
+                android:text="for next level" />
+
+            <TextView
+                android:id="@+id/next_level_balls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+
+                android:text="125000" />
         </TableRow>
 
 
@@ -104,8 +108,8 @@
         android:id="@+id/change_photo"
         android:layout_width="100dp"
         android:layout_height="30dp"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="308dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="295dp"
         android:background="@color/green2"
         android:text="@string/change_photo"
         android:textColor="@color/colorWhite"
@@ -118,7 +122,7 @@
         android:id="@+id/textView_progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="160dp"
         android:gravity="center"
         android:text="@string/progress"
         android:textSize="20dp"
@@ -129,7 +133,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_progress"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -137,18 +141,5 @@
         tools:layout_editor_absoluteX="0dp" />
 
 
-    <ImageButton
-        android:id="@+id/add_progress"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="352dp"
-        android:background="@drawable/oval"
-        android:scaleType="center"
-        android:src="@drawable/plusi"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -28,12 +31,12 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
 
     private AdapterProgress adapterProgress;
     private List<Progress> listItems;
-    private ImageButton add_progress;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
 
@@ -47,7 +50,6 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
 
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        add_progress = (ImageButton) v.findViewById(R.id.add_progress);
 
 
         ArrayList<Progress> progressmodel = new ArrayList<>();
@@ -76,19 +78,7 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
 
         recyclerView.setAdapter(adapterProgress);
 
-        add_progress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                AddProgressFragment dialog = new AddProgressFragment();
-                dialog.setTargetFragment(ProfileFragment.this, 1);
-                dialog.show(getFragmentManager(), "AddProgressFragment");
-
-               /* if (getActivity() instanceof MainActivity) {
-                    ((MainActivity) getActivity()).VisibleFragmentMainActivity(ADD_PROGRESS_FRAGMENT);
-                }*/
-            }
-        });
 
 
         return v;
@@ -99,5 +89,34 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
     public void sendInput(String input) {
         Log.d(TAG, "sendInput: found incoming input: " + input);
 
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.menu_profile_fragment, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.add_progress_menu:
+
+                AddProgressFragment dialog = new AddProgressFragment();
+                dialog.setTargetFragment(ProfileFragment.this, 1);
+                dialog.show(getFragmentManager(), "AddProgressFragment");
+                // Not implemented here
+                return false;
+           /* case R.id.action_settings:
+
+                // Do Fragment menu item stuff here
+                return true;*/
+
+            default:
+                break;
+        }
+
+        return false;
     }
 }

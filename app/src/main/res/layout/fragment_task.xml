@@ -15,18 +15,6 @@
         android:layout_height="match_parent"/>
 
 
-    <ImageButton
-        android:id="@+id/fab"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom|end"
-        android:layout_marginStart="352dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/oval"
-        android:scaleType="center"
-        android:src="@drawable/plusi" />
+
 
 </RelativeLayout>

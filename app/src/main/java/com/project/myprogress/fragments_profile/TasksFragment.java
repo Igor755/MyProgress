@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -22,12 +25,15 @@ public class TasksFragment extends Fragment {
 
 
     private AdapterTask adapterTask;
-    private ImageButton fab;
 
     static ArrayList<Task> taskmodel_array = new ArrayList<>();
 
 
-
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +42,6 @@ public class TasksFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_task, container, false);
 
 
-        fab = (ImageButton) v.findViewById(R.id.fab);
 
 
         for (int f = 0; f <= 2; f++) {
@@ -53,6 +58,7 @@ public class TasksFragment extends Fragment {
             RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            
             adapterTask = new AdapterTask(taskmodel_array, getContext(), new OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
@@ -68,23 +74,41 @@ public class TasksFragment extends Fragment {
             recyclerView.setAdapter(adapterTask);
 
 
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    AddTaskFragment dialog_fragment = new AddTaskFragment();
-                    dialog_fragment.setTargetFragment(TasksFragment.this, 1);
-                    dialog_fragment.show(getFragmentManager(), "AddProgressFragment");
-
-
-                }
-
-
-            });
 
 
             return v;
         }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.clear();
+        inflater.inflate(R.menu.menu_exercize_fragment, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.add_exersize_menu:
+
+                AddTaskFragment dialog_fragment = new AddTaskFragment();
+                dialog_fragment.setTargetFragment(TasksFragment.this, 1);
+                dialog_fragment.show(getFragmentManager(), "AddProgressFragment");
+
+                return false;
+           /* case R.id.action_settings:
+
+                // Do Fragment menu item stuff here
+                return true;*/
+
+            default:
+                break;
+        }
+
+        return false;
+    }
 
 
     }

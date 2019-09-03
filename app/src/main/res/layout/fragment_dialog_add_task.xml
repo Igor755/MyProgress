@@ -78,7 +78,7 @@
             android:layout_above="@+id/tvDate"
             android:layout_height="30dp"
             android:background="@color/colorTransparent"
-            android:src="@drawable/ico1" />
+            android:src="@drawable/calendar" />
 
 </LinearLayout>
 

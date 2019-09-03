@@ -146,7 +146,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@color/colorTransparent"
-                android:src="@drawable/galochka" />
+                android:src="@drawable/galochka_green" />
 
 
 

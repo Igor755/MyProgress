@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/delete_progress"
-                android:src = "@drawable/delete_progress_13"
+                android:src = "@drawable/delete_progress"
                 android:background="@color/colorTransparent"
                 android:layout_gravity="bottom|end"
                 android:layout_alignParentRight="true"/>
