@@ -140,23 +140,25 @@
             android:layout_below="@+id/edit_text_intent"
             android:gravity="center">
 
-            <ImageView
+            <ImageButton
 
                 android:id="@+id/complete"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@color/colorTransparent"
-                android:src="@drawable/galochka_green" />
+                android:src="@drawable/galochka_green40" />
 
 
 
             <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/fail"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginLeft="50dp"
-                android:src="@drawable/white_krest"
+                android:src="@drawable/krest_grey_40"
                 android:background="@color/colorTransparent"
                 android:text="@string/exercize_fail"/>
+
 
         </LinearLayout>
 

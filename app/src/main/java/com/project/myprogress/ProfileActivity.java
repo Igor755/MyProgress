@@ -1,5 +1,6 @@
 package com.project.myprogress;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -36,16 +37,14 @@ import android.view.Menu;
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    public enum MyFragmets {USER_INFO_FRAGMENT, ADD_PROGRESS_FRAGMENT, TASK_FRAGMENT, ADD_TASK_FRAGMENT}
 
     public Fragment user_info_fragment, add_progress_fragment, task_fragment, add_task_fragment;
     NavController navController;
 
     public Fragment container_fragment;
+    public Context context;
 
-    AdapterProfilePager userFragmentPagerAdapter;
-    FragmentManager fm = getSupportFragmentManager();
-
+    FragmentManager fragmentManager = getSupportFragmentManager();
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -58,14 +57,18 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
         user_info_fragment = new ProfileFragment();
         add_progress_fragment = new AddProgressFragment();
-        task_fragment = new TasksFragment();
+        //task_fragment = new TasksFragment();
         add_task_fragment = new AddTaskFragment();
         container_fragment = new ContainerFragment();
 
 
-        fm.beginTransaction()
+
+        fragmentManager.beginTransaction()
                 .add(R.id.nav_host_fragment, user_info_fragment)
                 .commit();
+
+
+
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -82,13 +85,6 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         navigationView.bringToFront();
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_profile_activity, menu);
-        return true;
-    }*/
-
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -101,20 +97,24 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         int id = item.getItemId();
 
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
 
         if (id == R.id.nav_profile) {
 
-                fragmentTransaction
+
+
+            getSupportFragmentManager().popBackStack(null,
+                    FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+           /* fragmentManager.beginTransaction()
                         .replace(R.id.nav_host_fragment, user_info_fragment)
                         .commit();
-
+*/
 
         } else if (id == R.id.nav_task) {
 
 
-            getSupportFragmentManager()
-                    .beginTransaction()
+            fragmentManager.beginTransaction()
                     .addToBackStack(null)
                     .replace(R.id.nav_host_fragment, container_fragment)
                     .commit();
@@ -127,14 +127,10 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
         return true;
     }
-    @Override
-    public void onBackPressed() {
-        Intent setIntent = new Intent(this, AuthActivity.class);
-        startActivity(setIntent);
-    }
 
 
 }
+
 
 
 

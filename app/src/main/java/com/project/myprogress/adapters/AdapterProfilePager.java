@@ -29,11 +29,11 @@ public class AdapterProfilePager extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
 
         if (position == 0) {
-            return new TasksFragment();
+            return   TasksFragment.newInstance(0, "ALL");
         } else if (position == 1) {
-            return new TasksFragment();
+            return  TasksFragment.newInstance(1, "PROCESS");
         } else   {
-            return new TasksFragment();
+            return  TasksFragment.newInstance(2,"COMPLETE");
 
         }
 
@@ -57,7 +57,8 @@ public class AdapterProfilePager extends FragmentPagerAdapter {
 
             default:
                 return null;
-        }    }
+        }    
+    }
 
 
 

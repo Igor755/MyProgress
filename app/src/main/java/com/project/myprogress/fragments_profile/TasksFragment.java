@@ -28,39 +28,73 @@ public class TasksFragment extends Fragment {
 
     private AdapterTask adapterTask;
 
-    static ArrayList<Task> taskmodel_array = new ArrayList<>();
-
+    ArrayList<Task> taskmodel_array = new ArrayList<>();
+    private String title;
+    private int page;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        page = getArguments().getInt("someInt", 0);
+        title = getArguments().getString("someTitle");
+
+        if (page ==0){
+
+            for (int f = 0; f <= 2; f++) {
+
+                Task new_taskModel = new Task();
+                new_taskModel.setName("Big_exercise");
+                new_taskModel.setDate_create("21.05.1990");
+                new_taskModel.setDescription("Every day in elementary school in America begins at 9.20 a.m. " +
+                        "Children have classes till 3.15 p.m. At 12 o’clock children have lunch.");
+                taskmodel_array.add(f, new_taskModel);
+            }
+
+        }else if(page==1){
+
+            for (int f = 0; f <= 5; f++) {
+
+                Task new_taskModel = new Task();
+                new_taskModel.setName("Big_exercise");
+                new_taskModel.setDate_create("21.05.1990");
+                new_taskModel.setDescription("Every day in elementary school in America begins at 9.20 a.m. " +
+                        "Children have classes till 3.15 p.m. At 12 o’clock children have lunch.");
+                taskmodel_array.add(f, new_taskModel);
+            }
+
+        }else{
+            for (int f = 0; f <= 1; f++) {
+
+                Task new_taskModel = new Task();
+                new_taskModel.setName("Big_exercise");
+                new_taskModel.setDate_create("21.05.1990");
+                new_taskModel.setDescription("Every day in elementary school in America begins at 9.20 a.m. " +
+                        "Children have classes till 3.15 p.m. At 12 o’clock children have lunch.");
+                taskmodel_array.add(f, new_taskModel);
+
+        }
+
+    }
     }
 
-    public static Fragment newInstance()
+    public static TasksFragment newInstance(int page, String title)
     {
-        TasksFragment myFragment = new TasksFragment();
-        return myFragment;
+        TasksFragment fragmentFirst = new TasksFragment();
+        Bundle args = new Bundle();
+        args.putInt("someInt", page);
+        args.putString("someTitle", title);
+        fragmentFirst.setArguments(args);
+        return fragmentFirst;
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_task, container, false);
-
-
-
-
-        for (int f = 0; f <= 2; f++) {
-
-            Task new_taskModel = new Task();
-            new_taskModel.setName("Big_exercise");
-            new_taskModel.setDate_create("21.05.1990");
-            new_taskModel.setDescription("Every day in elementary school in America begins at 9.20 a.m. " +
-                    "Children have classes till 3.15 p.m. At 12 o’clock children have lunch.");
-            taskmodel_array.add(f, new_taskModel);
-        }
 
 
             RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
@@ -80,10 +114,6 @@ public class TasksFragment extends Fragment {
             });
 
             recyclerView.setAdapter(adapterTask);
-
-
-
-
 
             return v;
         }

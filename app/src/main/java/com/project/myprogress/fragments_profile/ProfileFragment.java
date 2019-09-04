@@ -39,13 +39,6 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
         setHasOptionsMenu(true);
     }
 
-    public static Fragment newInstance()
-    {
-        ProfileFragment myFragment = new ProfileFragment();
-        return myFragment;
-    }
-
-
 
 
     @Override
@@ -54,14 +47,12 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
 
 
 
+
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
-
-
-
         ArrayList<Progress> progressmodel = new ArrayList<>();
 
 
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 5; i++) {
 
             Progress progressModel = new Progress();
             progressModel.setBalls_progress("102890");
@@ -83,9 +74,6 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
         });
 
         recyclerView.setAdapter(adapterProgress);
-
-
-
 
         return v;
     }
@@ -112,8 +100,9 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
                 AddProgressFragment dialog = new AddProgressFragment();
                 dialog.setTargetFragment(ProfileFragment.this, 1);
                 dialog.show(getFragmentManager(), "AddProgressFragment");
-                // Not implemented here
+
                 return false;
+
            /* case R.id.action_settings:
 
                 // Do Fragment menu item stuff here
