@@ -48,7 +48,7 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
 
 
         holder.name_progress.setText(itemList.getName_progress());
-        holder.point.setText(itemList.getBalls_progress());
+        // holder.point.setText(itemList.getBalls_progress());
         holder.delete_progress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,14 +93,14 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView name_progress;
-        TextView point;
+       // TextView point;
         ImageButton delete_progress;
 
         ViewHolder(View itemView) {
             super(itemView);
 
             name_progress = (TextView) itemView.findViewById(R.id.name_progress);
-            point = (TextView) itemView.findViewById(R.id.point);
+            //point = (TextView) itemView.findViewById(R.id.point);
             delete_progress = (ImageButton) itemView.findViewById(R.id.delete_progress);
 
             itemView.setOnClickListener(new View.OnClickListener() {

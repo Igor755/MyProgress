@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 
 import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterProgress;
+import com.project.myprogress.fragments_detail.DetailProgressFragment;
 import com.project.myprogress.interfaces.OnItemClickListener;
 import com.project.myprogress.modelclass.Progress;
 
@@ -69,6 +70,10 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
         adapterProgress = new AdapterProgress(progressmodel, getContext(), new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+
+                DetailProgressFragment dialog_fragment = new DetailProgressFragment();
+                dialog_fragment.setTargetFragment(ProfileFragment.this, 1);
+                dialog_fragment.show(getFragmentManager(), "DetailTaskFragment");
 
             }
         });

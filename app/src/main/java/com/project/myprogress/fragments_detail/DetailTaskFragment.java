@@ -1,4 +1,4 @@
-package com.project.myprogress.fragments_profile;
+package com.project.myprogress.fragments_detail;
 
 import android.os.Bundle;
 
