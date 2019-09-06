@@ -15,19 +15,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.myprogress.R;
 import com.project.myprogress.interfaces.OnItemClickListener;
-import com.project.myprogress.modelclass.Progress;
+import com.project.myprogress.modelclass.Sphere;
 
 import java.util.List;
 
 public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHolder> {
 
-    private List<Progress> listItems;
+    private List<Sphere> listItems;
     public Context mContext;
     private OnItemClickListener itemClickListener;
     private AlertDialog builder;
 
 
-    public AdapterProgress(List<Progress> listItems, Context mContext, OnItemClickListener itemClickListener) {
+    public AdapterProgress(List<Sphere> listItems, Context mContext, OnItemClickListener itemClickListener) {
         this.itemClickListener =itemClickListener;
         this.listItems = listItems;
         this.mContext = mContext;
@@ -43,7 +43,7 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
 
-        final Progress itemList = listItems.get(position);
+        final Sphere itemList = listItems.get(position);
 
 
 
@@ -55,7 +55,7 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
 
 
                 builder = new AlertDialog.Builder(v.getRootView().getContext()).create();
-                builder.setTitle("Delete Progress?");
+                builder.setTitle("Delete Sphere?");
                 builder.setMessage("You seriosly?");
                 builder.setButton(Dialog.BUTTON_POSITIVE, mContext.getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                     @Override

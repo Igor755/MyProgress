@@ -16,6 +16,29 @@ import java.util.ArrayList;
 public class AdapterTypeTaskSpinner extends BaseAdapter {
 
 
+  /*  public enum TypeTask {
+
+        Icon_1("цель", R.drawable.icon_type_goal_1),
+        Icon_2("2", R.drawable.icon_type_sub_goal_2),
+        Icon_3(3, R.drawable.icon_type_3);
+
+        private String value;
+        private int image;
+
+        private TypeTask(String value, int drawableId) {
+            this.value = value;
+            this.image = drawableId;
+        }
+
+        public int getImage() {
+            return image;
+        }
+
+        ///coinView.setImageResource(coinArray[x].getImage());
+
+    }*/
+
+
     private LayoutInflater layoutInflater;
     private ArrayList<TypeTask> typeTaskModels;
 
@@ -46,7 +69,7 @@ public class AdapterTypeTaskSpinner extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view = layoutInflater.inflate(R.layout.one_item_spiner_type,parent, false);
+        View view = layoutInflater.inflate(R.layout.one_item_spiner_type, parent, false);
 
         TypeTask typeTaskModel = (TypeTask) getItem(position);
 

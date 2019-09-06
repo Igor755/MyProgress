@@ -14,13 +14,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterProgress;
 import com.project.myprogress.fragments_detail.DetailProgressFragment;
 import com.project.myprogress.interfaces.OnItemClickListener;
-import com.project.myprogress.modelclass.Progress;
+import com.project.myprogress.modelclass.Sphere;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,9 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class ProfileFragment extends Fragment implements AddProgressFragment.OnInputSelected {
 
     private AdapterProgress adapterProgress;
-    private List<Progress> listItems;
+    private List<Sphere> listItems;
+
+
 
 
     @Override
@@ -50,15 +51,15 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
 
 
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
-        ArrayList<Progress> progressmodel = new ArrayList<>();
+        ArrayList<Sphere> progressmodel = new ArrayList<>();
 
 
         for (int i = 0; i <= 5; i++) {
 
-            Progress progressModel = new Progress();
-            progressModel.setBalls_progress("102890");
-            progressModel.setName_progress("Intelligence");
-            progressmodel.add(i, progressModel);
+            Sphere sphereModel = new Sphere();
+            sphereModel.setPoint("102890");
+            sphereModel.setName_progress("Intelligence");
+            progressmodel.add(i, sphereModel);
 
 
         }
