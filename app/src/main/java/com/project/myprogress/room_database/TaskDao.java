@@ -23,9 +23,11 @@ public interface TaskDao {
     @Delete
     void delete (Task task);
 
+
+    @Query("SELECT * FROM task_table")
+    LiveData<List<Task>> getAllTask();
+
     @Query("SELECT * FROM task_table WHERE id_sphere=3")
     LiveData<List<Task>> getShere();
-
-
 
 }

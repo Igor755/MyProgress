@@ -7,34 +7,48 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.project.myprogress.R;
+
+import java.util.Arrays;
+import java.util.List;
+
 
 @Entity(tableName = "task_table")
 public class Task {
 
     @PrimaryKey
     private String id_task;
-    private Icon type;
+    private TypeTask type;
     private String name;
     private String description;
     private String date_end;
     private String date_create;
+    private String state;
 
 
     private String id_sphere;
-
 
     public Task() {
 
     }
 
-    public Task(String id_task, Icon type, String name, String description, String date_end, String id_sphere, String date_create) {
+    public Task(String id_task, TypeTask type, String name, String description, String date_end, String date_create, String state, String id_sphere) {
         this.id_task = id_task;
         this.type = type;
         this.name = name;
         this.description = description;
         this.date_end = date_end;
-        this.id_sphere = id_sphere;
         this.date_create = date_create;
+        this.state = state;
+        this.id_sphere = id_sphere;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getId_task() {
@@ -53,11 +67,11 @@ public class Task {
         this.id_sphere = id_sphere;
     }
 
-    public Icon getType() {
+    public TypeTask getType() {
         return type;
     }
 
-    public void setType(Icon type) {
+    public void setType(TypeTask type) {
         this.type = type;
     }
 

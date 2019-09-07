@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -52,14 +53,17 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
         imageButton = v.findViewById(R.id.datePicker);
 
 
-        ArrayList<TypeTask> arrayType = new ArrayList<>();
+        ArrayList<TypeTask> arrayType = new ArrayList<TypeTask>();
 
-        arrayType.add(new TypeTask("Type 1", R.drawable.icon_type_goal_1));
-        arrayType.add(new TypeTask("Type 2", R.drawable.icon_type_sub_goal_2));
-        arrayType.add(new TypeTask("Type 3", R.drawable.icon_type_3));
 
+      /* ArrayList<TypeTask> arrayType = new ArrayList<>();
+
+        arrayType.add(new TypeTask("dsd","Type 1", R.drawable.icon_type_goal_1,"ds"));
+        arrayType.add(new TypeTask("sd", "Type 2", R.drawable.icon_type_sub_goal_2,"dsd"));
+        arrayType.add(new TypeTask("dsds","Type 3", R.drawable.icon_type_3,"sdsd"));
+*/
         Spinner spinner_type = (Spinner) v.findViewById(R.id.spinner_type);
-        AdapterTypeTaskSpinner adapterTypeTaskSpinner = new AdapterTypeTaskSpinner(getContext(),arrayType);
+        AdapterTypeTaskSpinner adapterTypeTaskSpinner = new AdapterTypeTaskSpinner(getContext());
         spinner_type.setAdapter(adapterTypeTaskSpinner);
 
 
