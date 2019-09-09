@@ -3,8 +3,10 @@ package com.project.myprogress.modelclass;
 import android.graphics.drawable.Icon;
 import android.media.Image;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.project.myprogress.R;
@@ -17,8 +19,11 @@ import java.util.List;
 public class Task {
 
     @PrimaryKey
+    @NonNull
     private String id_task;
-    private TypeTask type;
+
+    //@TypeConverters(ProfileTypeConverter::class)
+    private int type;
     private String name;
     private String description;
     private String date_end;
@@ -32,7 +37,9 @@ public class Task {
 
     }
 
-    public Task(String id_task, TypeTask type, String name, String description, String date_end, String date_create, String state, String id_sphere) {
+
+    @Ignore
+    public Task(String id_task, int type, String name, String description, String date_end, String date_create, String state, String id_sphere) {
         this.id_task = id_task;
         this.type = type;
         this.name = name;
@@ -67,11 +74,11 @@ public class Task {
         this.id_sphere = id_sphere;
     }
 
-    public TypeTask getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(TypeTask type) {
+    public void setType(int type) {
         this.type = type;
     }
 

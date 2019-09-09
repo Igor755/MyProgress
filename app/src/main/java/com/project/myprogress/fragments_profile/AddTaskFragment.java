@@ -5,6 +5,9 @@ import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +23,7 @@ import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterTypeTaskSpinner;
 import com.project.myprogress.customview.MultiSelectionSpinner;
 import com.project.myprogress.modelclass.TypeTask;
+import com.project.myprogress.room_database.TaskViewModel;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,10 +37,16 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class AddTaskFragment extends DialogFragment implements MultiSelectionSpinner.OnMultipleItemsSelectedListener{
 
-    private TextView actionOk, actionCancel;
+    private TextView actionOkButton, actionCancelButton;
     private TextView etmDisplayDate;
-    private ImageButton imageButton;
+    private ImageButton addDateButton;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private TextView edit_text_name;
+    private TextView edit_text_description;
+
+    //multiselection_spinner_progress
+    private TaskViewModel taskViewModel;
+
 
 
 
@@ -47,21 +57,21 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
 
         View v = inflater.inflate(R.layout.fragment_dialog_add_task, container, false);
 
-        actionOk = v.findViewById(R.id.ok);
-        actionCancel = v.findViewById(R.id.cancel);
+        actionOkButton = v.findViewById(R.id.ok);
+        actionCancelButton = v.findViewById(R.id.cancel);
+        addDateButton = v.findViewById(R.id.datePicker);
+
         etmDisplayDate = v.findViewById(R.id.tvDate);
-        imageButton = v.findViewById(R.id.datePicker);
+        edit_text_name = v.findViewById(R.id.edit_text_name);
+        edit_text_description = v.findViewById(R.id.edit_text_description);
+
+        taskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
 
 
-        ArrayList<TypeTask> arrayType = new ArrayList<TypeTask>();
 
 
-      /* ArrayList<TypeTask> arrayType = new ArrayList<>();
 
-        arrayType.add(new TypeTask("dsd","Type 1", R.drawable.icon_type_goal_1,"ds"));
-        arrayType.add(new TypeTask("sd", "Type 2", R.drawable.icon_type_sub_goal_2,"dsd"));
-        arrayType.add(new TypeTask("dsds","Type 3", R.drawable.icon_type_3,"sdsd"));
-*/
+
         Spinner spinner_type = (Spinner) v.findViewById(R.id.spinner_type);
         AdapterTypeTaskSpinner adapterTypeTaskSpinner = new AdapterTypeTaskSpinner(getContext());
         spinner_type.setAdapter(adapterTypeTaskSpinner);
@@ -75,7 +85,7 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
         multiSelectionSpinner.setListener(this);
 
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        addDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
@@ -106,14 +116,14 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
         };
 
 
-        actionOk.setOnClickListener(new View.OnClickListener() {
+        actionOkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
 
-        actionCancel.setOnClickListener(new View.OnClickListener() {
+        actionCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "onClick: closing dialog");

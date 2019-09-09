@@ -12,6 +12,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.project.myprogress.R;
 import com.project.myprogress.modelclass.Sphere;
 import com.project.myprogress.modelclass.Task;
+import com.project.myprogress.modelclass.TypeTask;
 import com.project.myprogress.modelclass.Users;
 
 @Database(entities = {Task.class}, version = 1, exportSchema = false)
@@ -55,7 +56,7 @@ public abstract class TaskDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
 
-           // taskDao.insert(new Task("kkk", Task.find("type1"),"kjkj","jijii","jiji","jjjj","kkkk","jiji"));
+           // taskDao.insert(new Task("kkk", TypeTask.Type1,"kjkj","jijii","jiji","jjjj","kkkk","jiji"));
             return null;
         }
     }

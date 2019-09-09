@@ -2,6 +2,8 @@ package com.project.myprogress.fragments_profile;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,23 +19,30 @@ import com.project.myprogress.adapters.AdapterTask;
 import com.project.myprogress.fragments_detail.DetailTaskFragment;
 import com.project.myprogress.interfaces.OnItemClickListener;
 import com.project.myprogress.modelclass.Task;
+import com.project.myprogress.room_database.TaskViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class TasksFragment extends Fragment {
 
 
     private AdapterTask adapterTask;
-
     ArrayList<Task> taskmodel_array = new ArrayList<>();
-    private String title;
-    private int page;
+    private TaskViewModel taskViewModel;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        int page;
+        String title;
+
+
+
         page = getArguments().getInt("someInt", 0);
         title = getArguments().getString("someTitle");
 
@@ -95,6 +104,8 @@ public class TasksFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_task, container, false);
 
 
+
+
             RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -112,6 +123,24 @@ public class TasksFragment extends Fragment {
             });
 
             recyclerView.setAdapter(adapterTask);
+
+
+
+
+        taskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
+        taskViewModel.getAllTask().observe(this, new Observer<List<Task>>() {
+            @Override
+            public void onChanged(List<Task> tasks) {
+                //update RecyclerVIew
+                adapterTask.setTasks(tasks);
+
+            }
+        });
+
+
+
+
+
 
             return v;
         }
