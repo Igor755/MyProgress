@@ -1,5 +1,6 @@
 package com.project.myprogress.fragments_profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -16,13 +17,11 @@ import android.view.ViewGroup;
 
 import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterTask;
-import com.project.myprogress.fragments_detail.DetailTaskFragment;
-import com.project.myprogress.interfaces.OnItemClickListener;
 import com.project.myprogress.modelclass.Task;
 import com.project.myprogress.room_database.TaskViewModel;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 public class TasksFragment extends Fragment {
@@ -41,12 +40,10 @@ public class TasksFragment extends Fragment {
         int page;
         String title;
 
-
-
         page = getArguments().getInt("someInt", 0);
         title = getArguments().getString("someTitle");
 
-        if (page ==0){
+      /*  if (page ==0){
 
             for (int f = 0; f <= 2; f++) {
 
@@ -82,11 +79,10 @@ public class TasksFragment extends Fragment {
 
         }
 
-    }
+    }*/
     }
 
-    public static TasksFragment newInstance(int page, String title)
-    {
+    public static TasksFragment newInstance(int page, String title) {
         TasksFragment fragmentFirst = new TasksFragment();
         Bundle args = new Bundle();
         args.putInt("someInt", page);
@@ -96,7 +92,6 @@ public class TasksFragment extends Fragment {
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -104,13 +99,11 @@ public class TasksFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_task, container, false);
 
 
+        RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-
-            RecyclerView recyclerView = v.findViewById(R.id.my_recycler_view);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-            adapterTask = new AdapterTask(taskmodel_array, getContext(), new OnItemClickListener() {
+           /*adapterTask = new AdapterTask(taskmodel_array, getContext(), new OnItemClickListener() {
                 @Override
                 public void onItemClick(View view, int position) {
 
@@ -120,11 +113,11 @@ public class TasksFragment extends Fragment {
 
 
                 }
-            });
+            });*/
 
-            recyclerView.setAdapter(adapterTask);
+        final AdapterTask adapterTask = new AdapterTask();
 
-
+        recyclerView.setAdapter(adapterTask);
 
 
         taskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
@@ -132,18 +125,16 @@ public class TasksFragment extends Fragment {
             @Override
             public void onChanged(List<Task> tasks) {
                 //update RecyclerVIew
+
                 adapterTask.setTasks(tasks);
+                System.out.println("dwdw");
 
             }
         });
 
 
-
-
-
-
-            return v;
-        }
+        return v;
+    }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
@@ -175,7 +166,34 @@ public class TasksFragment extends Fragment {
         return false;
     }
 
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+                    Bundle bundle = data.getExtras();
 
 
+            String id_task = data.getStringExtra("id_task");
+            int type = data.getIntExtra("type",0);
+            String name = data.getStringExtra("name");
+            String description = data.getStringExtra("description");
+            String date_end = data.getStringExtra("date_end");
+            String date_create = data.getStringExtra("date_create");
+            int state = data.getIntExtra("state",1);
+            String sphere = data.getStringExtra("sphere_name");
+
+
+
+            Task task = new Task(id_task,type,name,description,date_create,date_end,state,sphere);
+
+            taskViewModel.insert(task);
+
+
+
+
+            System.out.println(1);
+
+
+        }
     }
+}
 

@@ -1,17 +1,12 @@
 package com.project.myprogress.adapters;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,11 +14,12 @@ import com.project.myprogress.R;
 import com.project.myprogress.interfaces.OnItemClickListener;
 import com.project.myprogress.modelclass.Task;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
 
-    private List<Task> listItems;
+    private List<Task> listItems = new ArrayList<>();
     public Context mContext;
     private OnItemClickListener itemClickListener;
 
@@ -33,6 +29,10 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
         this.itemClickListener =itemClickListener;
         this.listItems = listItems;
         this.mContext = mContext;
+    }
+
+    public AdapterTask(){
+
     }
 
     @Override

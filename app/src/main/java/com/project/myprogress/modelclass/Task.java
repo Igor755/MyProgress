@@ -28,9 +28,7 @@ public class Task {
     private String description;
     private String date_end;
     private String date_create;
-    private String state;
-
-
+    private int state;
     private String id_sphere;
 
     public Task() {
@@ -39,7 +37,7 @@ public class Task {
 
 
     @Ignore
-    public Task(String id_task, int type, String name, String description, String date_end, String date_create, String state, String id_sphere) {
+    public Task(String id_task, int type, String name, String description, String date_end, String date_create, int state, String id_sphere) {
         this.id_task = id_task;
         this.type = type;
         this.name = name;
@@ -50,11 +48,11 @@ public class Task {
         this.id_sphere = id_sphere;
     }
 
-    public String getState() {
+    public int getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(int state) {
         this.state = state;
     }
 
