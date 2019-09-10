@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.myprogress.R;
-import com.project.myprogress.interfaces.OnItemClickListener;
+import com.project.myprogress.interfaces.OnItemClickListenerProgress;
 import com.project.myprogress.modelclass.Sphere;
 
 import java.util.List;
@@ -23,11 +23,11 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
 
     private List<Sphere> listItems;
     public Context mContext;
-    private OnItemClickListener itemClickListener;
+    private OnItemClickListenerProgress itemClickListener;
     private AlertDialog builder;
 
 
-    public AdapterProgress(List<Sphere> listItems, Context mContext, OnItemClickListener itemClickListener) {
+    public AdapterProgress(List<Sphere> listItems, Context mContext, OnItemClickListenerProgress itemClickListener) {
         this.itemClickListener =itemClickListener;
         this.listItems = listItems;
         this.mContext = mContext;
@@ -106,7 +106,7 @@ public class AdapterProgress extends RecyclerView.Adapter<AdapterProgress.ViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = ViewHolder.super.getAdapterPosition();
+                    int pos = getAdapterPosition();
                     itemClickListener.onItemClick(v,pos);
 
                 }

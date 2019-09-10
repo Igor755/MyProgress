@@ -5,9 +5,9 @@ import com.project.myprogress.R;
 public enum  StateTask {
 
 
-    State1( R.drawable.galochka_grey40),
-    State2(R.drawable.galochka_green40),
-    State3(R.drawable.krest_on_red40);
+    State1( R.drawable.galochka_grey24),
+    State2(R.drawable.galochka_green24),
+    State3(R.drawable.white_on_red24);
 
     public int icon;
 

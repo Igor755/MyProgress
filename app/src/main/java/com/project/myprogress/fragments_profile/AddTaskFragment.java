@@ -6,17 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -30,7 +25,6 @@ import com.project.myprogress.modelclass.TypeTask;
 import com.project.myprogress.room_database.TaskViewModel;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
@@ -50,11 +44,13 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private TextView edit_text_name;
     private TextView edit_text_description;
+
     static TypeTask selectedItem2;
 
     //multiselection_spinner_progress
     private TaskViewModel taskViewModel;
     private String id_task;
+
 
 
 
@@ -91,14 +87,13 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
                 TypeTask item = TypeTask.values()[position];
                 switch (item){
                     case Type1:
-                        System.out.println(item);
                         SpinerSelectedItem(item);
                         break;
                     case Type2:
-                        System.out.println(item);
+                        SpinerSelectedItem(item);
                         break;
                     case Type3:
-                        System.out.println(item);
+                        SpinerSelectedItem(item);
                         break;
                 }
             }
@@ -160,8 +155,7 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
                 System.out.println(date_create);
 
 
-               // spinner_type.getSelectedItem().getClass().isEnum();
-               // Enum<TypeTask> x = TypeTask.
+
                 id_task = UUID.randomUUID().toString();
                 int selectSpinerType = selectedItem2.getIcon();
                 String name = edit_text_name.getText().toString();
@@ -179,13 +173,9 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
                 intent.putExtra("date_create",date_create);
                 intent.putExtra("state", StateTask.State1.getIcon());
                 intent.putExtra("sphere_name",sphere_name);
-                System.out.println(intent);
 
 
-
-
-                getTargetFragment().onActivityResult(
-                        getTargetRequestCode(), 1, intent);
+                getTargetFragment().onActivityResult(getTargetRequestCode(), 1, intent);
                 dismiss();
 
 
@@ -214,8 +204,7 @@ public class AddTaskFragment extends DialogFragment implements MultiSelectionSpi
     public void selectedStrings(List<String> strings) {
 
     }
-    public TypeTask SpinerSelectedItem(TypeTask selectedItem){
-        this.selectedItem2=selectedItem;
-        return selectedItem2;
+    public void SpinerSelectedItem(TypeTask selectedItem){
+        selectedItem2 = selectedItem;
     }
 }

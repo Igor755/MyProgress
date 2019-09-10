@@ -116,7 +116,7 @@
             android:layout_below="@+id/edit_text_progress"
             tools:ignore="TextFields"/>
 
-        <EditText
+        <!--<EditText
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:id="@+id/edit_text_intent"
@@ -127,7 +127,7 @@
             android:textSize="15sp"
             android:layout_below="@+id/edit_text_date_create"
             tools:ignore="TextFields"/>
-
+-->
 
 
 
@@ -137,7 +137,7 @@
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:id="@+id/container_fail"
-            android:layout_below="@+id/edit_text_intent"
+            android:layout_below="@+id/edit_text_date_create"
             android:gravity="center">
 
             <ImageButton

@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.myprogress.R;
-import com.project.myprogress.interfaces.OnItemClickListener;
 import com.project.myprogress.modelclass.Task;
 
 import java.util.ArrayList;
@@ -53,6 +52,8 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
         holder.name_task.setText(itemList.getName());
         holder.date_create.setText(itemList.getDate_create());
         holder.description.setText(itemList.getDescription());
+        holder.complete_task.setImageResource(itemList.getState());
+        holder.icon_type.setImageResource(itemList.getType());
 
 
 
@@ -78,6 +79,7 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
         ImageView icon_type;
 
         ViewHolder(View itemView) {
+
             super(itemView);
 
             name_task = (TextView) itemView.findViewById(R.id.name_task);
@@ -90,12 +92,18 @@ public class AdapterTask extends RecyclerView.Adapter<AdapterTask.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = AdapterTask.ViewHolder.super.getAdapterPosition();
-                    itemClickListener.onItemClick(v,pos);
+                    int position = getAdapterPosition();
+                    itemClickListener.onItemClick(listItems.get(position));
 
                 }
             });
         }
+    }
+    public void setOnItemClickListener(OnItemClickListener itemClickListener){
+        this.itemClickListener = itemClickListener;
+    }
+    public interface  OnItemClickListener {
+        void onItemClick(Task task);
     }
 
 }

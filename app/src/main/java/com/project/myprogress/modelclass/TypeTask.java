@@ -18,6 +18,7 @@ public enum TypeTask {
         this.icon = icon;
     }
 
+
     public String getName() {
         return name;
     }

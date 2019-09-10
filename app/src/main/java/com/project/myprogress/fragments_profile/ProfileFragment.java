@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterProgress;
 import com.project.myprogress.fragments_detail.DetailProgressFragment;
-import com.project.myprogress.interfaces.OnItemClickListener;
+import com.project.myprogress.interfaces.OnItemClickListenerProgress;
 import com.project.myprogress.modelclass.Sphere;
 
 import java.util.ArrayList;
@@ -68,7 +68,7 @@ public class ProfileFragment extends Fragment implements AddProgressFragment.OnI
         RecyclerView recyclerView = v.findViewById(R.id.recycler_view_progress);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapterProgress = new AdapterProgress(progressmodel, getContext(), new OnItemClickListener() {
+        adapterProgress = new AdapterProgress(progressmodel, getContext(), new OnItemClickListenerProgress() {
             @Override
             public void onItemClick(View view, int position) {
 
