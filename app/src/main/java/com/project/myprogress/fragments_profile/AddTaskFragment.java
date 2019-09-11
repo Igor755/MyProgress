@@ -22,7 +22,7 @@ import com.project.myprogress.adapters.AdapterTypeTaskSpinner;
 import com.project.myprogress.customview.MultiSelectionSpinner;
 import com.project.myprogress.modelclass.StateTask;
 import com.project.myprogress.modelclass.TypeTask;
-import com.project.myprogress.room_database.TaskViewModel;
+import com.project.myprogress.viewmodel.TaskViewModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

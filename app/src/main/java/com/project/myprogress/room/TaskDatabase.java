@@ -1,4 +1,4 @@
-package com.project.myprogress.room_database;
+package com.project.myprogress.room;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -9,6 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.project.myprogress.dao.TaskDao;
 import com.project.myprogress.modelclass.Task;
 
 @Database(entities = {Task.class}, version = 2, exportSchema = false)

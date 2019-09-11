@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.project.myprogress.fragments_registration.ForgotPasswordFragment;
 import com.project.myprogress.fragments_registration.RegistrationFragment;
 import com.project.myprogress.fragments_registration.SignInFragment;
+import com.project.myprogress.modelclass.TypeTask;
 
 public class AuthActivity extends AppCompatActivity {
 
@@ -30,6 +31,9 @@ public class AuthActivity extends AppCompatActivity {
         fm.beginTransaction()
                 .add(R.id.fragment_container_auth, sign_in_fragment)
                 .commit();
+
+
+        System.out.println(TypeTask.values().length);
 
     }
     public void VisibleFragmentAuthActivity(MyFragmets visiblefragment) {

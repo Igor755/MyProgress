@@ -20,7 +20,7 @@ import com.project.myprogress.R;
 import com.project.myprogress.adapters.AdapterTask;
 import com.project.myprogress.fragments_detail.DetailTaskFragment;
 import com.project.myprogress.modelclass.Task;
-import com.project.myprogress.room_database.TaskViewModel;
+import com.project.myprogress.viewmodel.TaskViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -125,10 +125,18 @@ public class TasksFragment extends Fragment {
             @Override
             public void onItemClick(Task task) {
 
+                System.out.println(task);
 
 
-                DetailTaskFragment dialog_fragment = new DetailTaskFragment();
-                dialog_fragment.setTargetFragment(TasksFragment.this, 1);
+                DetailTaskFragment dialog_fragment = DetailTaskFragment.newInstance(task);
+
+
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("task_click", task);
+                dialog_fragment.setArguments(bundle);
+
+                dialog_fragment.setTargetFragment(TasksFragment.this, 2);
                 dialog_fragment.show(getFragmentManager(), "DetailTaskFragment");
 
             }

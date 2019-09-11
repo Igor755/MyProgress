@@ -1,4 +1,4 @@
-package com.project.myprogress.room_database;
+package com.project.myprogress.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

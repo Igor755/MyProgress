@@ -26,4 +26,18 @@ public enum TypeTask {
     public int getIcon() {
         return icon;
     }
+
+    public static String getByName(int icon) {
+
+        TypeTask item;
+        if (icon != 0) {
+            for (int i = 0; i < TypeTask.values().length; i++) {
+                item = TypeTask.values()[i];
+                if (item.getIcon() == icon) {
+                    return item.getName();
+                }
+            }
+        }
+        return null;
+    }
 }

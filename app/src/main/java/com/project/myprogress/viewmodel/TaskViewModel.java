@@ -1,4 +1,4 @@
-package com.project.myprogress.room_database;
+package com.project.myprogress.viewmodel;
 
 import android.app.Application;
 
@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.project.myprogress.modelclass.Task;
+import com.project.myprogress.room.TaskRepository;
 
 import java.util.List;
 

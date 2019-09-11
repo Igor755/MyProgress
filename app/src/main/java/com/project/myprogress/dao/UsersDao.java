@@ -1,4 +1,4 @@
-package com.project.myprogress.room_database;
+package com.project.myprogress.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
