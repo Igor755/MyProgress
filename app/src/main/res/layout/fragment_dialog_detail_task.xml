@@ -147,7 +147,7 @@
             android:layout_below="@+id/edit_text_date_create"
             android:gravity="center">
 
-            <ImageButton
+            <ImageView
 
                 android:id="@+id/state"
                 android:layout_width="40dp"
@@ -157,7 +157,7 @@
 
 
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/fail"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

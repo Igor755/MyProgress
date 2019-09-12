@@ -45,6 +45,21 @@ public class TasksFragment extends Fragment {
         page = getArguments().getInt("someInt", 0);
         title = getArguments().getString("someTitle");
 
+
+
+        taskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
+        taskViewModel.getAllTask().observe(this, new Observer<List<Task>>() {
+            @Override
+            public void onChanged(List<Task> tasks) {
+
+                //update RecyclerVIew
+                adapterTask.setTasks(tasks);
+                System.out.println("dwdw");
+
+            }
+        });
+
+
       /*  if (page ==0){
 
             for (int f = 0; f <= 2; f++) {
@@ -109,28 +124,13 @@ public class TasksFragment extends Fragment {
         recyclerView.setAdapter(adapterTask);
 
 
-        taskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
-        taskViewModel.getAllTask().observe(this, new Observer<List<Task>>() {
-            @Override
-            public void onChanged(List<Task> tasks) {
 
-                //update RecyclerVIew
-                adapterTask.setTasks(tasks);
-                System.out.println("dwdw");
-
-            }
-        });
 
         adapterTask.setOnItemClickListener(new AdapterTask.OnItemClickListener() {
             @Override
             public void onItemClick(Task task) {
 
-                System.out.println(task);
-
-
                 DetailTaskFragment dialog_fragment = DetailTaskFragment.newInstance(task);
-
-
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("task_click", task);
@@ -180,7 +180,6 @@ public class TasksFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if (requestCode == 1) {
-            Bundle bundle = data.getExtras();
 
 
             String id_task = data.getStringExtra("id_task");
@@ -193,11 +192,27 @@ public class TasksFragment extends Fragment {
             String sphere = data.getStringExtra("sphere_name");
 
 
-            Task task = new Task(id_task, type, name, description, date_create, date_end, state, sphere);
+            Task task_add = new Task(id_task, type, name, description, date_create, date_end, state, sphere);
+            taskViewModel.insert(task_add);
 
-            taskViewModel.insert(task);
+        }
+        if (requestCode == 2) {
 
 
+            String id_task = data.getStringExtra("id_task");
+            int type = data.getIntExtra("type", 0);
+            String name = data.getStringExtra("name");
+            String description = data.getStringExtra("description");
+            String date_end = data.getStringExtra("date_end");
+            String date_create = data.getStringExtra("date_create");
+            int state = data.getIntExtra("state", 1);
+            String sphere = data.getStringExtra("sphere_name");
+
+
+
+
+            Task task_update = new Task(id_task, type, name, description, date_create, date_end, state, sphere);
+            taskViewModel.update(task_update);
         }
     }
 }

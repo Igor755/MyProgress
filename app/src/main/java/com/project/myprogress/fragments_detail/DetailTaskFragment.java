@@ -1,5 +1,6 @@
 package com.project.myprogress.fragments_detail;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -24,7 +25,7 @@ public class DetailTaskFragment extends DialogFragment {
 
 
     private TextView actionOk, actionCancel;
-    private ImageButton completeBtn,failBtn;
+    private ImageView completeBtn, failBtn;
     boolean flagCompleteBtn = true;
     boolean flagFailBtn = true;
     private Task task_from_tasks_fragment;
@@ -38,16 +39,8 @@ public class DetailTaskFragment extends DialogFragment {
     private EditText edit_text_date_create;
 
 
- /*   @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Bundle bundle = new Bundle();
-        System.out.println(bundle.getSerializable("task_click"));
-        task2 = (Task) bundle.getSerializable("task_click");
-        System.out.println(task2);
-    }*/
 
-   public static DetailTaskFragment newInstance(Task task_from_tasks_fragment) {
+    public static DetailTaskFragment newInstance(Task task_from_tasks_fragment) {
 
         DetailTaskFragment detailTaskFragment = new DetailTaskFragment();
         Bundle args = new Bundle();
@@ -62,8 +55,7 @@ public class DetailTaskFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v =  inflater.inflate(R.layout.fragment_dialog_detail_task, container, false);
-
+        View v = inflater.inflate(R.layout.fragment_dialog_detail_task, container, false);
 
 
         task_from_tasks_fragment = (Task) getArguments().getSerializable("task_click");
@@ -72,7 +64,6 @@ public class DetailTaskFragment extends DialogFragment {
         actionCancel = v.findViewById(R.id.cancel);
         failBtn = v.findViewById(R.id.fail);
         completeBtn = v.findViewById(R.id.state);
-
 
         type_task_name = v.findViewById(R.id.type_task_name);
         type_task_icon = v.findViewById(R.id.type_task_icon);
@@ -91,7 +82,10 @@ public class DetailTaskFragment extends DialogFragment {
         edit_text_progress.setText(task_from_tasks_fragment.getId_sphere());
         edit_text_date_create.setText(task_from_tasks_fragment.getDate_create());
 
-
+        if (task_from_tasks_fragment.getState() == R.drawable.galochka_green24)
+            completeBtn.setImageResource(R.drawable.galochka_green40);
+        else
+            completeBtn.setImageResource(R.drawable.galochka_grey40);
 
 
         actionOk.setOnClickListener(new View.OnClickListener() {
@@ -99,13 +93,41 @@ public class DetailTaskFragment extends DialogFragment {
             public void onClick(View v) {
 
 
+                if ((completeBtn.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.galochka_grey40).getConstantState()) &&
+                        (failBtn.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.krest_on_red40).getConstantState())) {
+
+                    task_from_tasks_fragment.setState(R.drawable.white_on_red24);
+
+                } else if ((completeBtn.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.galochka_green40).getConstantState()) &&
+                        (failBtn.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.krest_grey_40).getConstantState())) {
+
+                    task_from_tasks_fragment.setState(R.drawable.galochka_green24);
+
+                } else if ((completeBtn.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.galochka_grey40).getConstantState()) &&
+                        (failBtn.getDrawable().getConstantState() == getResources().getDrawable(R.drawable.krest_grey_40).getConstantState())) {
+
+                    task_from_tasks_fragment.setState(R.drawable.galochka_grey24);
+
+                } else{
+                    task_from_tasks_fragment.setState(R.drawable.galochka_grey24);
+                }
+
+
+                Intent intent = new Intent();
+
+                intent.putExtra("id_task",task_from_tasks_fragment.getId_task());
+                intent.putExtra("type",task_from_tasks_fragment.getType());
+                intent.putExtra("name",task_from_tasks_fragment.getName());
+                intent.putExtra("description",task_from_tasks_fragment.getDescription());
+                intent.putExtra("date_end",task_from_tasks_fragment.getDate_end());
+                intent.putExtra("date_create",task_from_tasks_fragment.getDate_create());
+                intent.putExtra("state", task_from_tasks_fragment.getState());
+                intent.putExtra("sphere_name",task_from_tasks_fragment.getId_sphere());
 
 
 
-
-
-
-
+                getTargetFragment().onActivityResult(getTargetRequestCode(), 2, intent );
+                dismiss();
             }
         });
 
@@ -138,7 +160,7 @@ public class DetailTaskFragment extends DialogFragment {
                     failBtn.setImageResource(R.drawable.krest_on_red40);
                 else
                     failBtn.setImageResource(R.drawable.krest_grey_40);
-                    completeBtn.setImageResource(R.drawable.galochka_grey40);
+                completeBtn.setImageResource(R.drawable.galochka_grey40);
                 flagFailBtn = !flagFailBtn;
 
             }
